@@ -3,49 +3,39 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mijn Trainingsplan 2027</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
-    margin: 0;
-    padding: 30px;
     background: #101010;
     color: white;
     font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 25px;
+    max-width: 1200px;
 }
 
-h1, h2 { color: #ff6b00; }
-header { margin-bottom: 30px; }
-header p, .subtekst { color: #aaa; }
-
-.dashboard {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit, minmax(190px, 1fr)
-    );
-    gap: 20px;
-    margin-bottom: 25px;
+h1, h2, h3 {
+    color: #ff6b00;
 }
 
-.kaart, .onderdeel {
+header p, .muted {
+    color: #bbbbbb;
+}
+
+section {
     background: #252525;
     padding: 25px;
     border-radius: 12px;
-    margin-bottom: 25px;
+    margin: 25px 0;
 }
 
-.kaart h2 {
-    font-size: 30px;
-    margin: 10px 0;
-}
-
-.kaart p { color: #bbb; margin: 0; }
-
-.formulier {
+.dashboard, .formulier {
     display: grid;
     grid-template-columns: repeat(
         auto-fit, minmax(180px, 1fr)
@@ -53,153 +43,177 @@ header p, .subtekst { color: #aaa; }
     gap: 15px;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #ddd;
+.kaart {
+    background: #303030;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-input, select, textarea {
+.kaart h2 {
+    font-size: 30px;
+    margin: 12px 0 0;
+}
+
+label {
+    display: block;
+    margin: 12px 0 6px;
+}
+
+input, select {
     width: 100%;
     padding: 12px;
     background: #151515;
     color: white;
-    border: 1px solid #555;
+    border: 1px solid #666;
     border-radius: 7px;
-    font: inherit;
-}
-
-input:focus, select:focus {
-    outline: 2px solid #ff6b00;
+    font-size: 16px;
 }
 
 button {
     background: #ff6b00;
     color: #101010;
+    padding: 12px 18px;
     border: none;
-    padding: 13px 20px;
     border-radius: 7px;
+    cursor: pointer;
     font-size: 15px;
     font-weight: bold;
-    cursor: pointer;
-    margin-top: 15px;
 }
 
-button:hover { background: #ff8c33; }
-
-.verwijderen, .secundair {
-    background: #444;
-    color: white;
-    margin: 0;
-    padding: 10px 13px;
-    font-size: 13px;
+button:hover {
+    background: #ff963c;
 }
 
-.verwijderen:hover { background: #aa3333; }
-
-.acties {
+.knoppen {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
-    margin-top: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
-.acties button { margin: 0; }
+.grijs {
+    background: #494949;
+    color: white;
+}
 
-.training {
-    padding: 18px 0;
-    border-bottom: 1px solid #444;
+.grijs:hover {
+    background: #666;
+}
+
+.entry {
+    background: #333333;
+    padding: 18px;
+    border-radius: 8px;
+    margin: 12px 0;
+    border-left: 4px solid #ff6b00;
+}
+
+.entry p {
+    color: #ddd;
+}
+
+.flex {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 15px;
     flex-wrap: wrap;
 }
 
-.training p { color: #bbb; }
-.leeg { color: #aaa; }
-
-.planning-kaart {
-    background: #333;
-    border-left: 4px solid #ff6b00;
-    padding: 18px;
-    border-radius: 8px;
-    margin-bottom: 12px;
-}
-
-.planning-kaart h3 {
-    color: #ff6b00;
-    margin: 0 0 8px;
-}
-
-.planning-kaart p {
-    color: #ccc;
-    margin: 7px 0;
-}
-
-.zwift-veld {
-    display: none;
-    margin-top: 18px;
-    padding: 18px;
-    background: #1c1c1c;
-    border: 1px solid #ff6b00;
-    border-radius: 9px;
-}
-
-.zwift-veld.zichtbaar { display: block; }
-
-.zwift-veld h3 {
-    color: #ff6b00;
-    margin-top: 0;
-}
-
-.tag {
-    display: inline-block;
+.voortgang {
     background: #494949;
-    padding: 5px 9px;
+    border-radius: 20px;
+    height: 18px;
+    overflow: hidden;
+}
+
+#voortgangBalk {
+    background: #ff6b00;
+    height: 100%;
+    width: 0%;
+}
+
+.verborgen {
+    display: none !important;
+}
+
+/* KALENDER */
+
+.kalender {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.weekdag {
+    text-align: center;
+    color: #aaa;
+    font-weight: bold;
+    padding: 8px 0;
+}
+
+.dag {
+    background: #333;
+    border-radius: 7px;
+    min-height: 110px;
+    padding: 7px;
+    overflow-wrap: anywhere;
+}
+
+.andereMaand {
+    opacity: 0.35;
+}
+
+.vandaag {
+    outline: 2px solid #ff6b00;
+}
+
+.dagNummer {
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.kalenderTraining {
+    background: #58402a;
+    padding: 5px;
+    margin: 4px 0;
     border-radius: 5px;
     font-size: 12px;
 }
 
-.voortgang-achtergrond {
-    width: 100%;
-    height: 18px;
-    background: #444;
-    border-radius: 20px;
-    overflow: hidden;
-    margin: 20px 0 10px;
+.uitgevoerd {
+    background: #235147;
 }
 
-.voortgang-balk {
-    height: 100%;
-    width: 0%;
-    background: #ff6b00;
-    transition: width .3s;
-}
-
-.doel-kop {
+.legenda {
     display: flex;
-    justify-content: space-between;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
+    margin-top: 15px;
+    color: #ccc;
+    font-size: 14px;
 }
 
-.doel-getal {
-    color: #ff6b00;
-    font-size: 23px;
-    font-weight: bold;
+.oranje {
+    color: #ff963c;
 }
 
-.balken {
-    height: 230px;
+.groen {
+    color: #69d7a3;
+}
+
+/* GRAFIEKEN */
+
+.grafiek {
     display: flex;
     align-items: flex-end;
     gap: 10px;
-    padding-top: 20px;
+    height: 210px;
     overflow-x: auto;
 }
 
-.balkgroep {
+.balkGroep {
     flex: 1;
     min-width: 38px;
     height: 100%;
@@ -207,46 +221,70 @@ button:hover { background: #ff8c33; }
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    gap: 5px;
+    font-size: 12px;
 }
 
 .balk {
-    width: 75%;
     background: #ff6b00;
+    width: 75%;
     border-radius: 5px 5px 0 0;
     min-height: 2px;
 }
 
-.balkwaarde { font-size: 12px; margin-bottom: 5px; }
-.balklabel { font-size: 12px; color: #aaa; margin-top: 8px; }
+/* POPUP */
 
-.popup-achtergrond {
+.popupAchtergrond {
+    display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.85);
-    display: none;
+    background: rgba(0,0,0,0.85);
     align-items: center;
     justify-content: center;
     padding: 15px;
     z-index: 100;
 }
 
-.popup-achtergrond.zichtbaar { display: flex; }
-
-.popup {
-    width: 100%;
-    max-width: 650px;
-    max-height: 90vh;
-    overflow-y: auto;
-    background: #252525;
-    border: 1px solid #555;
-    border-radius: 14px;
-    padding: 25px;
+.popupAchtergrond.open {
+    display: flex;
 }
 
-@media (max-width: 600px) {
-    body { padding: 15px; }
-    h1 { font-size: 28px; }
-    .kaart, .onderdeel { padding: 18px; }
+.popup {
+    background: #292929;
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 650px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 650px) {
+    body {
+        padding: 12px;
+    }
+
+    section {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .dag {
+        min-height: 65px;
+        padding: 4px;
+    }
+
+    .kalenderTraining {
+        font-size: 10px;
+        padding: 3px;
+    }
+
+    .weekdag {
+        font-size: 12px;
+    }
 }
 </style>
 </head>
@@ -255,55 +293,54 @@ button:hover { background: #ff8c33; }
 
 <header>
     <h1>🚴 Mijn Trainingsplan 2027</h1>
-    <p>Mijn persoonlijke wielrentrainingen</p>
+    <p>Mijn persoonlijke wielrentrainingen en planning</p>
 </header>
 
 <!-- DASHBOARD -->
 
-<section class="dashboard">
+<div class="dashboard">
+
     <div class="kaart">
-        <p>Totaal kilometers</p>
+        Totaal kilometers
         <h2 id="kilometers">0 km</h2>
     </div>
 
     <div class="kaart">
-        <p>Trainingsuren</p>
+        Trainingsuren
         <h2 id="uren">0:00</h2>
     </div>
 
     <div class="kaart">
-        <p>Gemiddelde snelheid</p>
+        Gemiddelde snelheid
         <h2 id="snelheid">0 km/u</h2>
     </div>
 
     <div class="kaart">
-        <p>Aantal trainingen</p>
+        Aantal trainingen
         <h2 id="aantal">0</h2>
     </div>
-</section>
+
+</div>
 
 <!-- WEEKDOEL -->
 
-<section class="onderdeel">
+<section>
     <h2>🎯 Mijn weekdoel</h2>
-    <p id="weekPeriode" class="subtekst"></p>
 
-    <div class="doel-kop">
-        <strong>Voortgang</strong>
-        <span class="doel-getal" id="doelGetal">
-            0 / 150 km
-        </span>
+    <div class="flex">
+        <p id="weekPeriode"></p>
+        <h3 id="doelGetal"></h3>
     </div>
 
-    <div class="voortgang-achtergrond">
-        <div id="voortgangBalk"
-             class="voortgang-balk"></div>
+    <div class="voortgang">
+        <div id="voortgangBalk"></div>
     </div>
 
-    <p id="doelTekst" class="subtekst"></p>
+    <p id="doelTekst" class="muted"></p>
 
     <form id="doelForm">
         <div class="formulier">
+
             <div>
                 <label for="doelWeek">Week</label>
                 <input type="week" id="doelWeek" required>
@@ -314,23 +351,59 @@ button:hover { background: #ff8c33; }
                     Kilometerdoel
                 </label>
                 <input type="number" id="nieuwDoel"
-                       min="1" value="150" required>
+                       min="1" required>
             </div>
+
         </div>
-        <button type="submit">Weekdoel opslaan</button>
+
+        <div class="knoppen">
+            <button type="submit">
+                Weekdoel opslaan
+            </button>
+        </div>
     </form>
 </section>
 
-<!-- PLANNING -->
+<!-- NIEUWE TRAININGSKALENDER -->
 
-<section class="onderdeel">
+<section>
+    <h2>🗓️ Mijn trainingskalender</h2>
+
+    <div class="flex">
+        <button type="button" class="grijs"
+                id="vorigeMaand">
+            ← Vorige
+        </button>
+
+        <h3 id="kalenderTitel"></h3>
+
+        <button type="button" class="grijs"
+                id="volgendeMaand">
+            Volgende →
+        </button>
+    </div>
+
+    <div class="legenda">
+        <span class="oranje">● Gepland</span>
+        <span class="groen">● Uitgevoerd</span>
+    </div>
+
+    <div id="kalender" class="kalender"></div>
+</section>
+
+<!-- TRAINING PLANNEN -->
+
+<section>
     <h2>📅 Training plannen</h2>
-    <p class="subtekst">
-        Plan je training op basis van tijd.
+
+    <p class="muted">
+        Plan je trainingen op basis van tijd.
     </p>
 
     <form id="planningForm">
+
         <div class="formulier">
+
             <div>
                 <label for="planDatum">Datum</label>
                 <input type="date" id="planDatum" required>
@@ -340,6 +413,7 @@ button:hover { background: #ff8c33; }
                 <label for="planType">
                     Soort training
                 </label>
+
                 <select id="planType">
                     <option>Duurtraining</option>
                     <option>Hersteltraining</option>
@@ -352,9 +426,7 @@ button:hover { background: #ff8c33; }
             </div>
 
             <div>
-                <label for="planUren">
-                    Geplande uren
-                </label>
+                <label for="planUren">Geplande uren</label>
                 <input type="number" id="planUren"
                        min="0" value="1" required>
             </div>
@@ -364,14 +436,14 @@ button:hover { background: #ff8c33; }
                     Geplande minuten
                 </label>
                 <input type="number" id="planMinuten"
-                       min="0" max="59" value="0"
-                       required>
+                       min="0" max="59" value="0" required>
             </div>
 
             <div>
                 <label for="planIntensiteit">
                     Intensiteit
                 </label>
+
                 <select id="planIntensiteit">
                     <option>Rustig</option>
                     <option>Gemiddeld</option>
@@ -385,121 +457,168 @@ button:hover { background: #ff8c33; }
                 </label>
                 <input type="text" id="planNotitie"
                        maxlength="200"
-                       placeholder="Bijv. zone 2">
+                       placeholder="Bijvoorbeeld zone 2">
+            </div>
+
+        </div>
+
+        <!-- ZWIFT VELDEN -->
+
+        <div id="zwiftVeld" class="verborgen">
+
+            <h3>🚴 Zwift-route of workout</h3>
+
+            <div class="formulier">
+
+                <div>
+                    <label for="zwiftSoort">
+                        Wat ga je volgen?
+                    </label>
+
+                    <select id="zwiftSoort">
+                        <option>Route</option>
+                        <option>Workout</option>
+                        <option>Race</option>
+                        <option>Event</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="zwiftNaam">
+                        Naam in Zwift
+                    </label>
+                    <input type="text" id="zwiftNaam"
+                           maxlength="150"
+                           placeholder="Watopia - Tempus Fugit">
+                </div>
+
             </div>
         </div>
 
-        <!-- ALLEEN BIJ ZWIFT -->
-        <div id="zwiftVeld" class="zwift-veld">
-            <h3>🚴 Zwift-training</h3>
-
-            <label for="zwiftSoort">
-                Wat ga je doen?
-            </label>
-            <select id="zwiftSoort">
-                <option value="Route">Vrije route</option>
-                <option value="Workout">Workout / training</option>
-                <option value="Race">Zwift-race</option>
-                <option value="Event">Groepsrit / event</option>
-            </select>
-
-            <br><br>
-
-            <label for="zwiftNaam">
-                Naam van route of workout
-            </label>
-            <input type="text" id="zwiftNaam"
-                   maxlength="150"
-                   placeholder="Bijv. Watopia - Tempus Fugit">
-
-            <p class="subtekst">
-                Vul de naam in zoals die in Zwift staat.
-            </p>
+        <div class="knoppen">
+            <button type="submit">
+                + Training inplannen
+            </button>
         </div>
 
-        <button type="submit">
-            + Training inplannen
-        </button>
     </form>
 </section>
 
-<section class="onderdeel">
-    <h2>🗓️ Mijn geplande trainingen</h2>
+<!-- GEPLANDE TRAININGEN -->
+
+<section>
+    <h2>📋 Mijn geplande trainingen</h2>
     <div id="planningLijst"></div>
 </section>
 
-<!-- UITGEVOERDE TRAININGEN -->
+<!-- UITGEVOERDE TRAINING TOEVOEGEN -->
 
-<section class="onderdeel">
+<section>
     <h2>➕ Uitgevoerde training toevoegen</h2>
 
     <form id="trainingForm">
+
         <div class="formulier">
+
             <div>
                 <label for="datum">Datum</label>
                 <input type="date" id="datum" required>
             </div>
+
             <div>
-                <label for="afstand">Afstand (km)</label>
+                <label for="afstand">
+                    Afstand (km)
+                </label>
                 <input type="number" id="afstand"
                        min="0.01" step="0.01" required>
             </div>
+
             <div>
                 <label for="trainingsuren">Uren</label>
                 <input type="number" id="trainingsuren"
                        min="0" value="0" required>
             </div>
+
             <div>
                 <label for="minuten">Minuten</label>
                 <input type="number" id="minuten"
                        min="0" max="59" value="0" required>
             </div>
+
             <div>
                 <label for="hartslag">
                     Gemiddelde hartslag
                 </label>
                 <input type="number" id="hartslag"
-                       min="1" placeholder="145">
+                       min="1">
             </div>
+
             <div>
                 <label for="vermogen">
                     Gemiddeld vermogen (watt)
                 </label>
                 <input type="number" id="vermogen"
-                       min="1" placeholder="190">
+                       min="1">
             </div>
+
         </div>
 
-        <button type="submit">Training opslaan</button>
+        <div class="knoppen">
+            <button type="submit">
+                Training opslaan
+            </button>
+        </div>
+
     </form>
 </section>
 
 <!-- GRAFIEKEN -->
 
-<section class="onderdeel">
+<section>
     <h2>📊 Kilometers per week</h2>
-    <div id="weekGrafiek" class="balken"></div>
+    <div id="weekGrafiek" class="grafiek"></div>
 </section>
 
-<section class="onderdeel">
-    <h2>📅 Kilometers per maand</h2>
-    <div id="maandGrafiek" class="balken"></div>
+<section>
+    <h2>📊 Kilometers per maand</h2>
+    <div id="maandGrafiek" class="grafiek"></div>
 </section>
 
-<section class="onderdeel">
-    <h2>📋 Mijn uitgevoerde trainingen</h2>
+<!-- UITGEVOERDE TRAININGEN -->
+
+<section>
+    <h2>✅ Mijn uitgevoerde trainingen</h2>
     <div id="trainingenLijst"></div>
 </section>
 
-<!-- TRAINING VOLTOOIEN POPUP -->
+<!-- BACK-UP -->
 
-<div id="voltooiPopup" class="popup-achtergrond">
+<section>
+    <h2>💾 Back-up maken</h2>
+
+    <p class="muted">
+        Je trainingen worden in deze browser opgeslagen.
+        Download regelmatig een back-up.
+    </p>
+
+    <button type="button" id="backupKnop">
+        Download back-up
+    </button>
+</section>
+
+<!-- POPUP TRAINING VOLTOOIEN -->
+
+<div id="voltooiPopup" class="popupAchtergrond">
+
     <div class="popup">
+
         <h2>✅ Training voltooid</h2>
-        <p id="voltooiBeschrijving" class="subtekst"></p>
+        <p id="voltooiBeschrijving"></p>
 
         <form id="voltooiForm">
+
             <div class="formulier">
+
                 <div>
                     <label for="voltooiDatum">
                         Werkelijke datum
@@ -510,24 +629,22 @@ button:hover { background: #ff8c33; }
 
                 <div>
                     <label for="voltooiAfstand">
-                        Gereden kilometers
+                        Afstand (km)
                     </label>
                     <input type="number" id="voltooiAfstand"
-                           min="0.01" step="0.01"
-                           required>
+                           min="0.01" step="0.01" required>
                 </div>
 
                 <div>
                     <label for="voltooiUren">Uren</label>
                     <input type="number" id="voltooiUren"
-                           min="0" value="1" required>
+                           min="0" required>
                 </div>
 
                 <div>
                     <label for="voltooiMinuten">Minuten</label>
                     <input type="number" id="voltooiMinuten"
-                           min="0" max="59" value="0"
-                           required>
+                           min="0" max="59" required>
                 </div>
 
                 <div>
@@ -535,52 +652,73 @@ button:hover { background: #ff8c33; }
                         Gem. hartslag
                     </label>
                     <input type="number" id="voltooiHartslag"
-                           min="1" placeholder="145">
+                           min="1">
                 </div>
 
                 <div>
                     <label for="voltooiVermogen">
-                        Gem. wattage
+                        Gem. vermogen
                     </label>
                     <input type="number" id="voltooiVermogen"
-                           min="1" placeholder="190">
+                           min="1">
                 </div>
+
             </div>
 
-            <div class="acties">
+            <div class="knoppen">
+
                 <button type="submit">
-                    ✅ Training opslaan
+                    Training opslaan
                 </button>
-                <button type="button" class="secundair"
+
+                <button type="button" class="grijs"
                         id="annuleerVoltooi">
                     Annuleren
                 </button>
+
             </div>
+
         </form>
     </div>
 </div>
 
 <script>
 
+// ===================================
 // OPSLAG
-const opslagSleutel = "mijntrainingsplan2027";
-const planningSleutel = "mijntrainingsplan2027_planning";
-const doelenSleutel = "mijntrainingsplan2027_doelen";
+// ===================================
 
-function laden(sleutel, standaard) {
+const trainingKey = "mijntrainingsplan2027";
+const planningKey = "mijntrainingsplan2027_planning";
+const doelenKey = "mijntrainingsplan2027_doelen";
+
+function element(id) {
+    return document.getElementById(id);
+}
+
+function value(id) {
+    return element(id).value;
+}
+
+function number(id) {
+    return Number(value(id));
+}
+
+function laden(key, standaard) {
     try {
-        const waarde = localStorage.getItem(sleutel);
-        return waarde ? JSON.parse(waarde) : standaard;
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : standaard;
     } catch (fout) {
         console.error(fout);
         return standaard;
     }
 }
 
-function bewaren(sleutel, gegevens) {
+function bewaren(key, gegevens) {
     try {
         localStorage.setItem(
-            sleutel, JSON.stringify(gegevens)
+            key,
+            JSON.stringify(gegevens)
         );
         return true;
     } catch (fout) {
@@ -589,52 +727,44 @@ function bewaren(sleutel, gegevens) {
     }
 }
 
-let trainingen = laden(opslagSleutel, []);
-let planning = laden(planningSleutel, []);
-let weekdoelen = laden(doelenSleutel, {});
+let trainingen = laden(trainingKey, []);
+let planning = laden(planningKey, []);
+let weekdoelen = laden(doelenKey, {});
 
 if (!Array.isArray(trainingen)) trainingen = [];
 if (!Array.isArray(planning)) planning = [];
-if (!weekdoelen || typeof weekdoelen !== "object"
-    || Array.isArray(weekdoelen)) weekdoelen = {};
 
-let geselecteerdPlanId = null;
+if (!weekdoelen || typeof weekdoelen !== "object") {
+    weekdoelen = {};
+}
 
+let actiefPlan = null;
+
+// ===================================
 // HULPFUNCTIES
-
-function element(id) {
-    return document.getElementById(id);
-}
-
-function waarde(id) {
-    return element(id).value;
-}
-
-function nummer(id) {
-    return Number(waarde(id));
-}
+// ===================================
 
 function maakId() {
     return crypto.randomUUID();
 }
 
-function datumObject(tekst) {
-    return new Date(tekst + "T12:00:00");
+function datumObject(datum) {
+    return new Date(datum + "T12:00:00");
 }
 
-function datumSleutel(datum) {
+function datumKey(datum) {
     return datum.getFullYear() + "-" +
         String(datum.getMonth() + 1).padStart(2, "0") +
         "-" +
         String(datum.getDate()).padStart(2, "0");
 }
 
-function datumTekst(tekst) {
-    return datumObject(tekst).toLocaleDateString("nl-NL");
+function datumTekst(datum) {
+    return datumObject(datum).toLocaleDateString("nl-NL");
 }
 
-function kmTekst(getal) {
-    return getal.toFixed(1).replace(".", ",");
+function kmTekst(km) {
+    return Number(km).toFixed(1).replace(".", ",");
 }
 
 function tijdTekst(minuten) {
@@ -646,9 +776,20 @@ function snelheid(km, minuten) {
     return minuten > 0 ? km / (minuten / 60) : 0;
 }
 
-function maandagVanWeek(datum) {
+function tekst(tag, inhoud, klasse = "") {
+    const node = document.createElement(tag);
+    node.textContent = inhoud;
+    node.className = klasse;
+    return node;
+}
+
+function maandag(datum) {
     const d = new Date(datum);
-    d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+
+    d.setDate(
+        d.getDate() - ((d.getDay() + 6) % 7)
+    );
+
     return d;
 }
 
@@ -659,109 +800,128 @@ function isoWeek(datum) {
         datum.getDate()
     ));
 
-    d.setUTCDate(d.getUTCDate() +
-        4 - (d.getUTCDay() || 7));
+    d.setUTCDate(
+        d.getUTCDate() + 4 - (d.getUTCDay() || 7)
+    );
 
     const jaar = d.getUTCFullYear();
-    const start = new Date(Date.UTC(jaar, 0, 1));
+    const begin = new Date(Date.UTC(jaar, 0, 1));
+
     const week = Math.ceil(
-        (((d - start) / 86400000) + 1) / 7
+        (((d - begin) / 86400000) + 1) / 7
     );
 
     return jaar + "-W" +
         String(week).padStart(2, "0");
 }
 
-function weekBegin(weekwaarde) {
-    const [jaar, week] = weekwaarde.split("-W").map(Number);
-    const d = maandagVanWeek(new Date(jaar, 0, 4, 12));
-    d.setDate(d.getDate() + (week - 1) * 7);
-    return d;
+function weekBegin(weekTekst) {
+    const delen = weekTekst.split("-W");
+    const jaar = Number(delen[0]);
+    const week = Number(delen[1]);
+
+    const start = maandag(new Date(jaar, 0, 4, 12));
+
+    start.setDate(
+        start.getDate() + (week - 1) * 7
+    );
+
+    return start;
 }
 
-function tekst(parent, tag, inhoud, klasse) {
-    const node = document.createElement(tag);
-    node.textContent = inhoud;
-    if (klasse) node.className = klasse;
-    parent.appendChild(node);
-    return node;
+function totaalKm(lijst) {
+    return lijst.reduce(function(totaal, training) {
+        return totaal + Number(training.afstand || 0);
+    }, 0);
 }
 
-// ZWIFT VELD TONEN
+// ===================================
+// ZWIFT VELDEN
+// ===================================
 
-function updateZwiftVeld() {
-    const isZwift = waarde("planType") === "Indoor / Zwift";
+function toonZwift() {
+    const isZwift = value("planType") === "Indoor / Zwift";
 
     element("zwiftVeld").classList.toggle(
-        "zichtbaar", isZwift
+        "verborgen",
+        !isZwift
     );
 
     element("zwiftNaam").required = isZwift;
 }
 
 element("planType").addEventListener(
-    "change", updateZwiftVeld
+    "change",
+    toonZwift
 );
 
-// PLANNING TOEVOEGEN
+// ===================================
+// TRAINING PLANNEN
+// ===================================
 
 element("planningForm").addEventListener(
-    "submit", function(event) {
+    "submit",
+    function(event) {
         event.preventDefault();
 
-        const minuten = nummer("planUren") * 60 +
-                        nummer("planMinuten");
+        const minuten =
+            number("planUren") * 60 +
+            number("planMinuten");
 
         if (!Number.isFinite(minuten) || minuten <= 0) {
-            alert("Vul een geldige geplande tijd in.");
+            alert("Vul een geldige tijd in.");
             return;
         }
 
         const isZwift =
-            waarde("planType") === "Indoor / Zwift";
+            value("planType") === "Indoor / Zwift";
 
-        const nieuwPlan = {
-            id: maakId(),
-            datum: waarde("planDatum"),
-            type: waarde("planType"),
-            minuten: minuten,
-            intensiteit: waarde("planIntensiteit"),
-            notitie: waarde("planNotitie"),
-            zwiftSoort: isZwift
-                ? waarde("zwiftSoort") : null,
-            zwiftNaam: isZwift
-                ? waarde("zwiftNaam").trim() : null
-        };
-
-        if (isZwift && !nieuwPlan.zwiftNaam) {
-            alert("Vul je Zwift-route of workout in.");
+        if (isZwift && !value("zwiftNaam").trim()) {
+            alert("Vul je Zwift-route in.");
             return;
         }
 
-        const nieuwePlanning = [...planning, nieuwPlan];
+        const training = {
+            id: maakId(),
+            datum: value("planDatum"),
+            type: value("planType"),
+            minuten: minuten,
+            intensiteit: value("planIntensiteit"),
+            notitie: value("planNotitie"),
+            zwiftSoort: isZwift
+                ? value("zwiftSoort") : null,
+            zwiftNaam: isZwift
+                ? value("zwiftNaam").trim() : null
+        };
 
-        if (bewaren(planningSleutel, nieuwePlanning)) {
-            planning = nieuwePlanning;
+        const nieuw = [...planning, training];
+
+        if (bewaren(planningKey, nieuw)) {
+            planning = nieuw;
+
             this.reset();
-            element("planUren").value = 1;
+
             element("planDatum").value =
-                datumSleutel(new Date());
-            updateZwiftVeld();
-            toonPlanning();
+                datumKey(new Date());
+
+            toonZwift();
+            allesBijwerken();
         }
     }
 );
 
-// PLANNING WEERGEVEN
+// ===================================
+// GEPLANDE TRAININGEN TONEN
+// ===================================
 
 function toonPlanning() {
     const lijst = element("planningLijst");
     lijst.replaceChildren();
 
     if (planning.length === 0) {
-        tekst(lijst, "p",
-            "Je hebt nog geen trainingen ingepland.",
-            "leeg");
+        lijst.appendChild(
+            tekst("p", "Nog geen trainingen gepland.")
+        );
         return;
     }
 
@@ -769,217 +929,238 @@ function toonPlanning() {
         (a, b) => a.datum.localeCompare(b.datum)
     );
 
-    gesorteerd.forEach(function(p) {
-        const kaart = document.createElement("div");
-        kaart.className = "planning-kaart";
+    gesorteerd.forEach(function(training) {
+        const kaart = tekst("div", "", "entry");
 
-        tekst(kaart, "h3",
-            datumTekst(p.datum) + " — " + p.type);
+        kaart.appendChild(
+            tekst("h3",
+                datumTekst(training.datum) +
+                " — " + training.type)
+        );
 
-        tekst(kaart, "p",
-            "Intensiteit: " + p.intensiteit);
+        kaart.appendChild(
+            tekst("p",
+                "Intensiteit: " + training.intensiteit)
+        );
 
-        // Nieuwe plannen gebruiken tijd.
-        // Oude plannen blijven leesbaar met afstand.
-        if (Number.isFinite(p.minuten)) {
-            tekst(kaart, "p",
-                "⏱️ Geplande tijd: " +
-                tijdTekst(p.minuten) + " uur");
-        } else if (typeof p.afstand === "number") {
-            tekst(kaart, "p",
-                "🚴 Oude planning: " +
-                kmTekst(p.afstand) + " km");
+        if (Number.isFinite(training.minuten)) {
+            kaart.appendChild(
+                tekst("p",
+                    "⏱️ Gepland: " +
+                    tijdTekst(training.minuten) + " uur")
+            );
+        } else if (typeof training.afstand === "number") {
+            kaart.appendChild(
+                tekst("p",
+                    "Oude planning: " +
+                    kmTekst(training.afstand) + " km")
+            );
         }
 
-        if (p.zwiftNaam) {
-            tekst(kaart, "p",
-                "🗺️ " + (p.zwiftSoort || "Zwift") +
-                ": " + p.zwiftNaam);
+        if (training.zwiftNaam) {
+            kaart.appendChild(
+                tekst("p",
+                    "🗺️ " + (training.zwiftSoort || "Zwift") +
+                    ": " + training.zwiftNaam)
+            );
         }
 
-        if (p.notitie) {
-            tekst(kaart, "p", "📝 " + p.notitie);
+        if (training.notitie) {
+            kaart.appendChild(
+                tekst("p", "📝 " + training.notitie)
+            );
         }
 
-        const acties = document.createElement("div");
-        acties.className = "acties";
+        const knoppen = tekst("div", "", "knoppen");
 
-        const voltooi = document.createElement("button");
-        voltooi.textContent = "✅ Training voltooid";
-        voltooi.addEventListener("click", function() {
-            openVoltooien(p.id);
-        });
+        const voltooid = tekst(
+            "button", "✅ Training voltooid"
+        );
 
-        const verwijderen = document.createElement("button");
-        verwijderen.className = "verwijderen";
-        verwijderen.textContent = "Verwijderen";
+        voltooid.onclick = function() {
+            openVoltooien(training.id);
+        };
 
-        verwijderen.addEventListener("click", function() {
-            if (!confirm("Deze planning verwijderen?")) {
-                return;
-            }
+        const verwijderen = tekst(
+            "button", "Verwijderen", "grijs"
+        );
+
+        verwijderen.onclick = function() {
+            if (!confirm("Training verwijderen?")) return;
 
             const nieuw = planning.filter(
-                item => item.id !== p.id
+                p => p.id !== training.id
             );
 
-            if (bewaren(planningSleutel, nieuw)) {
+            if (bewaren(planningKey, nieuw)) {
                 planning = nieuw;
-                toonPlanning();
+                allesBijwerken();
             }
-        });
+        };
 
-        acties.append(voltooi, verwijderen);
-        kaart.appendChild(acties);
+        knoppen.append(voltooid, verwijderen);
+        kaart.appendChild(knoppen);
         lijst.appendChild(kaart);
     });
 }
 
+// ===================================
 // TRAINING VOLTOOIEN
+// ===================================
 
 function openVoltooien(id) {
-    const p = planning.find(item => item.id === id);
-    if (!p) return;
+    const plan = planning.find(p => p.id === id);
 
-    geselecteerdPlanId = id;
+    if (!plan) return;
+
+    actiefPlan = id;
 
     element("voltooiForm").reset();
+
     element("voltooiDatum").value =
-        datumSleutel(new Date());
+        datumKey(new Date());
+
+    element("voltooiUren").value =
+        Math.floor((plan.minuten || 0) / 60);
+
+    element("voltooiMinuten").value =
+        (plan.minuten || 0) % 60;
 
     element("voltooiBeschrijving").textContent =
-        p.type + " — gepland op " + datumTekst(p.datum);
+        plan.type + " — " + datumTekst(plan.datum);
 
-    if (Number.isFinite(p.minuten)) {
-        element("voltooiUren").value =
-            Math.floor(p.minuten / 60);
-        element("voltooiMinuten").value = p.minuten % 60;
-    } else {
-        element("voltooiUren").value = 0;
-        element("voltooiMinuten").value = 0;
-    }
-
-    element("voltooiPopup").classList.add("zichtbaar");
+    element("voltooiPopup").classList.add("open");
 }
 
 function sluitVoltooien() {
-    element("voltooiPopup").classList.remove("zichtbaar");
-    geselecteerdPlanId = null;
+    element("voltooiPopup").classList.remove("open");
+    actiefPlan = null;
 }
 
-element("annuleerVoltooi").addEventListener(
-    "click", sluitVoltooien
-);
+element("annuleerVoltooi").onclick = sluitVoltooien;
 
 element("voltooiForm").addEventListener(
-    "submit", function(event) {
+    "submit",
+    function(event) {
         event.preventDefault();
 
-        const p = planning.find(
-            item => item.id === geselecteerdPlanId
+        const plan = planning.find(
+            p => p.id === actiefPlan
         );
-        if (!p) return;
 
-        const minuten = nummer("voltooiUren") * 60 +
-                        nummer("voltooiMinuten");
+        if (!plan) return;
 
-        const afstand = nummer("voltooiAfstand");
+        const afstand = number("voltooiAfstand");
+
+        const minuten =
+            number("voltooiUren") * 60 +
+            number("voltooiMinuten");
 
         if (
-            !Number.isFinite(minuten) || minuten <= 0 ||
-            !Number.isFinite(afstand) || afstand <= 0
+            !Number.isFinite(afstand) ||
+            afstand <= 0 ||
+            !Number.isFinite(minuten) ||
+            minuten <= 0
         ) {
-            alert("Vul de werkelijke tijd en afstand in.");
+            alert("Vul afstand en tijd in.");
             return;
         }
 
         const training = {
             id: maakId(),
-            datum: waarde("voltooiDatum"),
+            datum: value("voltooiDatum"),
             afstand: afstand,
             minuten: minuten,
-            hartslag: nummer("voltooiHartslag") || null,
-            vermogen: nummer("voltooiVermogen") || null,
-            type: p.type,
-            zwiftNaam: p.zwiftNaam || null
-        };
-
-        const nieuweTrainingen = [...trainingen, training];
-        const nieuwePlanning = planning.filter(
-            item => item.id !== p.id
-        );
-
-        // Eerst veilig opslaan. Alleen na beide
-        // geslaagde schrijfacties gaan we verder.
-        if (!bewaren(opslagSleutel, nieuweTrainingen)) {
-            return;
-        }
-
-        trainingen = nieuweTrainingen;
-
-        if (bewaren(planningSleutel, nieuwePlanning)) {
-            planning = nieuwePlanning;
-        } else {
-            alert(
-                "De rit is opgeslagen, maar je planning " +
-                "kon niet worden bijgewerkt. Verwijder " +
-                "die planning later handmatig."
-            );
-        }
-
-        sluitVoltooien();
-        updateAlles();
-    }
-);
-
-// LOSSE TRAINING TOEVOEGEN
-
-element("trainingForm").addEventListener(
-    "submit", function(event) {
-        event.preventDefault();
-
-        const afstand = nummer("afstand");
-        const minuten = nummer("trainingsuren") * 60 +
-                        nummer("minuten");
-
-        if (
-            !Number.isFinite(afstand) || afstand <= 0 ||
-            !Number.isFinite(minuten) || minuten <= 0
-        ) {
-            alert("Vul een geldige afstand en tijd in.");
-            return;
-        }
-
-        const training = {
-            id: maakId(),
-            datum: waarde("datum"),
-            afstand: afstand,
-            minuten: minuten,
-            hartslag: nummer("hartslag") || null,
-            vermogen: nummer("vermogen") || null
+            hartslag: number("voltooiHartslag") || null,
+            vermogen: number("voltooiVermogen") || null,
+            type: plan.type,
+            zwiftNaam: plan.zwiftNaam || null
         };
 
         const nieuw = [...trainingen, training];
 
-        if (bewaren(opslagSleutel, nieuw)) {
+        if (!bewaren(trainingKey, nieuw)) return;
+
+        trainingen = nieuw;
+
+        const nieuwePlanning = planning.filter(
+            p => p.id !== actiefPlan
+        );
+
+        if (bewaren(planningKey, nieuwePlanning)) {
+            planning = nieuwePlanning;
+        } else {
+            alert(
+                "Training opgeslagen, maar de planning " +
+                "moet je nog handmatig verwijderen."
+            );
+        }
+
+        sluitVoltooien();
+        allesBijwerken();
+    }
+);
+
+// ===================================
+// LOSSE TRAINING TOEVOEGEN
+// ===================================
+
+element("trainingForm").addEventListener(
+    "submit",
+    function(event) {
+        event.preventDefault();
+
+        const afstand = number("afstand");
+
+        const minuten =
+            number("trainingsuren") * 60 +
+            number("minuten");
+
+        if (
+            !Number.isFinite(afstand) ||
+            afstand <= 0 ||
+            !Number.isFinite(minuten) ||
+            minuten <= 0
+        ) {
+            alert("Vul afstand en tijd in.");
+            return;
+        }
+
+        const training = {
+            id: maakId(),
+            datum: value("datum"),
+            afstand: afstand,
+            minuten: minuten,
+            hartslag: number("hartslag") || null,
+            vermogen: number("vermogen") || null
+        };
+
+        const nieuw = [...trainingen, training];
+
+        if (bewaren(trainingKey, nieuw)) {
             trainingen = nieuw;
             this.reset();
+
             element("datum").value =
-                datumSleutel(new Date());
-            updateAlles();
+                datumKey(new Date());
+
+            allesBijwerken();
         }
     }
 );
 
-// UITGEVOERDE TRAININGEN WEERGEVEN
+// ===================================
+// UITGEVOERDE TRAININGEN
+// ===================================
 
 function toonTrainingen() {
     const lijst = element("trainingenLijst");
     lijst.replaceChildren();
 
-    if (!trainingen.length) {
-        tekst(lijst, "p",
-            "Nog geen trainingen toegevoegd.", "leeg");
+    if (trainingen.length === 0) {
+        lijst.appendChild(
+            tekst("p", "Nog geen trainingen toegevoegd.")
+        );
         return;
     }
 
@@ -987,104 +1168,126 @@ function toonTrainingen() {
         (a, b) => b.datum.localeCompare(a.datum)
     );
 
-    gesorteerd.forEach(function(t) {
-        const kaart = document.createElement("div");
-        kaart.className = "training";
+    gesorteerd.forEach(function(training) {
+        const kaart = tekst("div", "", "entry");
 
-        const info = document.createElement("div");
+        kaart.appendChild(
+            tekst("strong",
+                datumTekst(training.datum) + " — " +
+                kmTekst(training.afstand) + " km")
+        );
 
-        tekst(info, "strong",
-            datumTekst(t.datum) + " — " +
-            kmTekst(t.afstand) + " km");
+        kaart.appendChild(
+            tekst("p",
+                tijdTekst(training.minuten) + " uur | " +
+                kmTekst(snelheid(
+                    training.afstand,
+                    training.minuten
+                )) + " km/u")
+        );
 
-        tekst(info, "p",
-            tijdTekst(t.minuten) + " uur | " +
-            kmTekst(snelheid(t.afstand, t.minuten)) +
-            " km/u");
-
-        if (t.type) {
-            tekst(info, "p", "🚴 " + t.type);
-        }
-        if (t.zwiftNaam) {
-            tekst(info, "p", "🗺️ " + t.zwiftNaam);
-        }
-        if (t.hartslag) {
-            tekst(info, "p",
-                "❤️ " + t.hartslag + " bpm");
-        }
-        if (t.vermogen) {
-            tekst(info, "p",
-                "⚡ " + t.vermogen + " watt");
+        if (training.type) {
+            kaart.appendChild(
+                tekst("p", "🚴 " + training.type)
+            );
         }
 
-        const knop = document.createElement("button");
-        knop.className = "verwijderen";
-        knop.textContent = "Verwijderen";
+        if (training.zwiftNaam) {
+            kaart.appendChild(
+                tekst("p", "🗺️ " + training.zwiftNaam)
+            );
+        }
 
-        knop.addEventListener("click", function() {
+        if (training.hartslag) {
+            kaart.appendChild(
+                tekst("p",
+                    "❤️ " + training.hartslag + " bpm")
+            );
+        }
+
+        if (training.vermogen) {
+            kaart.appendChild(
+                tekst("p",
+                    "⚡ " + training.vermogen + " watt")
+            );
+        }
+
+        const verwijderen = tekst(
+            "button", "Verwijderen", "grijs"
+        );
+
+        verwijderen.onclick = function() {
             if (!confirm("Training verwijderen?")) return;
 
             const nieuw = trainingen.filter(
-                item => item.id !== t.id
+                t => t.id !== training.id
             );
 
-            if (bewaren(opslagSleutel, nieuw)) {
+            if (bewaren(trainingKey, nieuw)) {
                 trainingen = nieuw;
-                updateAlles();
+                allesBijwerken();
             }
-        });
+        };
 
-        kaart.append(info, knop);
+        kaart.appendChild(verwijderen);
         lijst.appendChild(kaart);
     });
 }
 
+// ===================================
 // DASHBOARD
+// ===================================
 
-function updateDashboard() {
-    let km = 0;
-    let minuten = 0;
+function dashboardBijwerken() {
+    const kilometers = totaalKm(trainingen);
 
-    trainingen.forEach(function(t) {
-        km += t.afstand;
-        minuten += t.minuten;
-    });
+    const minuten = trainingen.reduce(
+        (totaal, t) => totaal + Number(t.minuten || 0),
+        0
+    );
 
     element("kilometers").textContent =
-        kmTekst(km) + " km";
-    element("uren").textContent = tijdTekst(minuten);
+        kmTekst(kilometers) + " km";
+
+    element("uren").textContent =
+        tijdTekst(minuten);
+
     element("snelheid").textContent =
-        kmTekst(snelheid(km, minuten)) + " km/u";
-    element("aantal").textContent = trainingen.length;
+        kmTekst(snelheid(kilometers, minuten)) + " km/u";
+
+    element("aantal").textContent =
+        trainingen.length;
 }
 
+// ===================================
 // WEEKDOEL
+// ===================================
 
-function updateWeekdoel() {
-    const gekozen = waarde("doelWeek");
-    if (!gekozen) return;
+function weekdoelBijwerken() {
+    const week = value("doelWeek");
 
-    const start = weekBegin(gekozen);
+    if (!week) return;
+
+    const start = weekBegin(week);
+
     const einde = new Date(start);
     einde.setDate(einde.getDate() + 7);
 
-    const doel = weekdoelen[gekozen] || 150;
+    const doel = Number(weekdoelen[week]) || 150;
 
-    let gereden = 0;
-
-    trainingen.forEach(function(t) {
-        const d = datumObject(t.datum);
-        if (d >= start && d < einde) {
-            gereden += t.afstand;
-        }
-    });
+    const gereden = totaalKm(
+        trainingen.filter(function(t) {
+            const datum = datumObject(t.datum);
+            return datum >= start && datum < einde;
+        })
+    );
 
     const zondag = new Date(einde);
     zondag.setDate(zondag.getDate() - 1);
 
     element("weekPeriode").textContent =
-        datumTekst(datumSleutel(start)) + " t/m " +
-        datumTekst(datumSleutel(zondag));
+        datumTekst(datumKey(start)) + " t/m " +
+        datumTekst(datumKey(zondag));
 
     element("doelGetal").textContent =
         kmTekst(gereden) + " / " + doel + " km";
@@ -1094,23 +1297,25 @@ function updateWeekdoel() {
 
     element("doelTekst").textContent =
         gereden >= doel
-        ? "🎉 Je weekdoel is bereikt!"
-        : "Nog " + kmTekst(doel - gereden) +
-          " km te gaan.";
+            ? "🎉 Weekdoel bereikt!"
+            : "Nog " + kmTekst(doel - gereden) +
+              " km te gaan.";
 
     element("nieuwDoel").value = doel;
 }
 
 element("doelWeek").addEventListener(
-    "change", updateWeekdoel
+    "change",
+    weekdoelBijwerken
 );
 
 element("doelForm").addEventListener(
-    "submit", function(event) {
+    "submit",
+    function(event) {
         event.preventDefault();
 
-        const week = waarde("doelWeek");
-        const doel = nummer("nieuwDoel");
+        const week = value("doelWeek");
+        const doel = number("nieuwDoel");
 
         if (!week || !Number.isFinite(doel) || doel <= 0) {
             return;
@@ -1118,64 +1323,73 @@ element("doelForm").addEventListener(
 
         const nieuw = {...weekdoelen, [week]: doel};
 
-        if (bewaren(doelenSleutel, nieuw)) {
+        if (bewaren(doelenKey, nieuw)) {
             weekdoelen = nieuw;
-            updateWeekdoel();
+            weekdoelBijwerken();
             alert("Weekdoel opgeslagen!");
         }
     }
 );
 
+// ===================================
 // GRAFIEKEN
+// ===================================
 
 function tekenGrafiek(id, gegevens) {
     const container = element(id);
     container.replaceChildren();
 
-    const hoogste = Math.max(
-        1, ...gegevens.map(item => item.km)
+    const maximum = Math.max(
+        1,
+        ...gegevens.map(item => item.km)
     );
 
     gegevens.forEach(function(item) {
-        const groep = document.createElement("div");
-        groep.className = "balkgroep";
+        const groep = tekst("div", "", "balkGroep");
 
-        tekst(groep, "div",
-            String(Math.round(item.km)), "balkwaarde");
+        groep.appendChild(
+            tekst("span", Math.round(item.km))
+        );
 
-        const balk = document.createElement("div");
-        balk.className = "balk";
+        const balk = tekst("div", "", "balk");
+
         balk.style.height =
-            item.km / hoogste * 160 + "px";
+            (item.km / maximum * 150) + "px";
+
         balk.title = kmTekst(item.km) + " km";
+
         groep.appendChild(balk);
 
-        tekst(groep, "div", item.label, "balklabel");
+        groep.appendChild(
+            tekst("span", item.label)
+        );
+
         container.appendChild(groep);
     });
 }
 
-function updateGrafieken() {
+function grafiekenBijwerken() {
     const vandaag = new Date();
-    const maandag = maandagVanWeek(vandaag);
+    const startMaandag = maandag(vandaag);
 
     const weken = [];
 
     for (let i = 7; i >= 0; i--) {
-        const start = new Date(maandag);
-        start.setDate(start.getDate() - i * 7);
+        const start = new Date(startMaandag);
+
+        start.setDate(
+            start.getDate() - i * 7
+        );
 
         const einde = new Date(start);
         einde.setDate(einde.getDate() + 7);
 
-        let km = 0;
-
-        trainingen.forEach(function(t) {
-            const d = datumObject(t.datum);
-            if (d >= start && d < einde) {
-                km += t.afstand;
-            }
-        });
+        const km = totaalKm(
+            trainingen.filter(function(t) {
+                const datum = datumObject(t.datum);
+                return datum >= start && datum < einde;
+            })
+        );
 
         weken.push({
             label: start.getDate() + "/" +
@@ -1187,26 +1401,27 @@ function updateGrafieken() {
     const maanden = [];
 
     for (let i = 11; i >= 0; i--) {
-        const start = new Date(
+        const maand = new Date(
             vandaag.getFullYear(),
-            vandaag.getMonth() - i, 1
+            vandaag.getMonth() - i,
+            1
         );
 
-        let km = 0;
+        const km = totaalKm(
+            trainingen.filter(function(t) {
+                const datum = datumObject(t.datum);
 
-        trainingen.forEach(function(t) {
-            const d = datumObject(t.datum);
-            if (
-                d.getFullYear() === start.getFullYear() &&
-                d.getMonth() === start.getMonth()
-            ) {
-                km += t.afstand;
-            }
-        });
+                return (
+                    datum.getFullYear() === maand.getFullYear() &&
+                    datum.getMonth() === maand.getMonth()
+                );
+            })
+        );
 
         maanden.push({
-            label: start.toLocaleDateString("nl-NL", {
-                month: "short", year: "2-digit"
+            label: maand.toLocaleDateString("nl-NL", {
+                month: "short",
+                year: "2-digit"
             }),
             km: km
         });
@@ -1216,25 +1431,211 @@ function updateGrafieken() {
     tekenGrafiek("maandGrafiek", maanden);
 }
 
-function updateAlles() {
-    updateDashboard();
-    updateWeekdoel();
-    toonPlanning();
-    toonTrainingen();
-    updateGrafieken();
+// ===================================
+// NIEUWE TRAININGSKALENDER
+// ===================================
+
+let getoondeMaand = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    1
+);
+
+function kalenderBijwerken() {
+    const kalender = element("kalender");
+    kalender.replaceChildren();
+
+    element("kalenderTitel").textContent =
+        getoondeMaand.toLocaleDateString("nl-NL", {
+            month: "long",
+            year: "numeric"
+        });
+
+    const weekdagen = [
+        "Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"
+    ];
+
+    weekdagen.forEach(function(dag) {
+        kalender.appendChild(
+            tekst("div", dag, "weekdag")
+        );
+    });
+
+    const eersteDag = new Date(
+        getoondeMaand.getFullYear(),
+        getoondeMaand.getMonth(),
+        1
+    );
+
+    const startVerschil =
+        (eersteDag.getDay() + 6) % 7;
+
+    const dagenInMaand = new Date(
+        getoondeMaand.getFullYear(),
+        getoondeMaand.getMonth() + 1,
+        0
+    ).getDate();
+
+    const aantalVakken =
+        Math.ceil((startVerschil + dagenInMaand) / 7) * 7;
+
+    for (let i = 0; i < aantalVakken; i++) {
+        const datum = new Date(
+            eersteDag.getFullYear(),
+            eersteDag.getMonth(),
+            i - startVerschil + 1
+        );
+
+        const sleutel = datumKey(datum);
+
+        const vak = tekst("div", "", "dag");
+
+        if (
+            datum.getMonth() !==
+            getoondeMaand.getMonth()
+        ) {
+            vak.classList.add("andereMaand");
+        }
+
+        if (sleutel === datumKey(new Date())) {
+            vak.classList.add("vandaag");
+        }
+
+        vak.appendChild(
+            tekst("div", datum.getDate(), "dagNummer")
+        );
+
+        // Geplande trainingen
+        planning
+            .filter(p => p.datum === sleutel)
+            .forEach(function(p) {
+                let beschrijving = "📅 " + p.type;
+
+                if (Number.isFinite(p.minuten)) {
+                    beschrijving +=
+                        " " + tijdTekst(p.minuten);
+                }
+
+                if (p.zwiftNaam) {
+                    beschrijving +=
+                        " - " + p.zwiftNaam;
+                }
+
+                vak.appendChild(
+                    tekst(
+                        "div",
+                        beschrijving,
+                        "kalenderTraining"
+                    )
+                );
+            });
+
+        // Uitgevoerde trainingen
+        trainingen
+            .filter(t => t.datum === sleutel)
+            .forEach(function(t) {
+                vak.appendChild(
+                    tekst(
+                        "div",
+                        "✓ " + kmTekst(t.afstand) + " km",
+                        "kalenderTraining uitgevoerd"
+                    )
+                );
+            });
+
+        kalender.appendChild(vak);
+    }
 }
 
-// START
+element("vorigeMaand").addEventListener(
+    "click",
+    function() {
+        getoondeMaand = new Date(
+            getoondeMaand.getFullYear(),
+            getoondeMaand.getMonth() - 1,
+            1
+        );
 
-const vandaag = new Date();
+        kalenderBijwerken();
+    }
+);
 
-element("datum").value = datumSleutel(vandaag);
-element("planDatum").value = datumSleutel(vandaag);
-element("doelWeek").value = isoWeek(vandaag);
+element("volgendeMaand").addEventListener(
+    "click",
+    function() {
+        getoondeMaand = new Date(
+            getoondeMaand.getFullYear(),
+            getoondeMaand.getMonth() + 1,
+            1
+        );
 
-updateZwiftVeld();
-updateAlles();
+        kalenderBijwerken();
+    }
+);
+
+// ===================================
+// BACK-UP MAKEN
+// ===================================
+
+element("backupKnop").addEventListener(
+    "click",
+    function() {
+        const backup = {
+            datum: new Date().toISOString(),
+            trainingen: trainingen,
+            planning: planning,
+            weekdoelen: weekdoelen
+        };
+
+        const bestand = new Blob(
+            [JSON.stringify(backup, null, 2)],
+            {type: "application/json"}
+        );
+
+        const url = URL.createObjectURL(bestand);
+
+        const link = document.createElement("a");
+        link.href = url;
+
+        link.download =
+            "mijntrainingsplan2027-backup-" +
+            datumKey(new Date()) + ".json";
+
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+
+        setTimeout(function() {
+            URL.revokeObjectURL(url);
+        }, 1000);
+    }
+);
+
+// ===================================
+// ALLES BIJWERKEN
+// ===================================
+
+function allesBijwerken() {
+    dashboardBijwerken();
+    weekdoelBijwerken();
+    toonPlanning();
+    toonTrainingen();
+    grafiekenBijwerken();
+    kalenderBijwerken();
+}
+
+// ===================================
+// WEBSITE STARTEN
+// ===================================
+
+element("datum").value = datumKey(new Date());
+element("planDatum").value = datumKey(new Date());
+element("doelWeek").value = isoWeek(new Date());
+
+toonZwift();
+allesBijwerken();
 
 </script>
+
 </body>
 </html>
