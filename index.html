@@ -3,7 +3,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mijn Trainingsplan 2027</title>
 <style>
 :root{
@@ -27,7 +27,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 .logo small{color:var(--muted)}
 .menu{display:flex;flex-direction:column;gap:7px}
 .menu button{border:0;padding:14px;color:#c5d0df;
- background:transparent;border-radius:9px;text-align:left;font-weight:bold}
+ background:transparent;border-radius:9px;text-align:left;
+ font-weight:bold}
 .menu button.active{background:var(--orange);color:#111}
 .menu button:hover{filter:brightness(1.15)}
 .main{flex:1;min-width:0;max-width:1450px;padding:30px}
@@ -44,7 +45,8 @@ p{line-height:1.55}
  border:1px solid var(--line)}
 .panel,.kpi{background:var(--panel);padding:22px;
  border:1px solid var(--line);border-radius:13px;margin-bottom:19px}
-.kpis,.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.kpis,.grid{display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
 .kpi{margin:0}
 .kpi strong{display:block;color:var(--orange);font-size:27px;
@@ -68,40 +70,47 @@ input,select{width:100%;min-width:0;background:#101926;
 .hidden{display:none!important}
 .progress{background:#384658;height:14px;border-radius:20px;
  overflow:hidden;margin:18px 0}
-.fill{background:var(--orange);height:100%;width:0;transition:width .3s}
+.fill{background:var(--orange);height:100%;width:0;
+ transition:width .3s}
 .calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));
  gap:5px;margin-top:15px}
-.weekday{text-align:center;color:var(--muted);font-size:12px;padding:8px 0}
+.weekday{text-align:center;color:var(--muted);
+ font-size:12px;padding:8px 0}
 .day{min-height:100px;min-width:0;text-align:left;padding:7px;
  background:var(--panel2);color:white;border:1px solid var(--line);
  border-radius:7px;display:flex;flex-direction:column;gap:4px}
 .day:hover{border-color:var(--orange)}
 .day.selected{border:2px solid var(--orange)}
 .day.outside{opacity:.4}
+.day.today span:first-child{color:var(--orange)}
 .day-entry{font-size:10px;background:#79502d;border-radius:4px;
  padding:4px;overflow-wrap:anywhere}
 .day-entry.done{background:#286b53}
-.detail{background:#111c2a;border-radius:12px;padding:18px;margin-top:18px}
-.chart{height:210px;display:flex;align-items:flex-end;gap:9px;overflow-x:auto}
+.detail{background:#111c2a;border-radius:12px;
+ padding:18px;margin-top:18px}
+.chart{height:210px;display:flex;align-items:flex-end;
+ gap:9px;overflow-x:auto}
 .chart-col{flex:1;min-width:43px;height:100%;display:flex;
- flex-direction:column;justify-content:flex-end;align-items:center;
- gap:6px;color:var(--muted);font-size:11px}
+ flex-direction:column;justify-content:flex-end;
+ align-items:center;gap:6px;color:var(--muted);font-size:11px}
 .bar{background:var(--orange);width:70%;min-height:2px;
  border-radius:5px 5px 0 0}
-.library{display:grid;grid-template-columns:
- repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.library{display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 dialog{background:var(--panel);color:white;border:1px solid var(--line);
  border-radius:13px;width:min(650px,95vw);max-height:90vh;
  overflow:auto;padding:24px}
 dialog::backdrop{background:#000c}
+
 /* COACH */
 .chat-app{background:#101824;border:1px solid var(--line);
  border-radius:16px;overflow:hidden}
-.chat-header{display:flex;align-items:center;gap:13px;padding:16px 20px;
- background:#202d3d;border-bottom:1px solid var(--line)}
-.chat-avatar{display:grid;place-items:center;width:44px;height:44px;
- flex-shrink:0;border-radius:12px;background:var(--orange);
- color:#111;font-size:24px}
+.chat-header{display:flex;align-items:center;gap:13px;
+ padding:16px 20px;background:#202d3d;
+ border-bottom:1px solid var(--line)}
+.chat-avatar{display:grid;place-items:center;width:44px;
+ height:44px;flex-shrink:0;border-radius:12px;
+ background:var(--orange);color:#111;font-size:24px}
 .chat-header strong{display:block}
 .chat-header small{color:var(--green);display:block;margin-top:5px}
 .chat-messages{height:430px;max-height:65vh;overflow-y:auto;
@@ -112,35 +121,56 @@ dialog::backdrop{background:#000c}
  border-bottom-left-radius:4px}
 .chat-message.user{align-self:flex-end;background:#38506a;
  border-bottom-right-radius:4px}
-.chat-speaker{font-size:12px;font-weight:bold;color:var(--orange);
- margin-bottom:5px}
+.chat-speaker{font-size:12px;font-weight:bold;
+ color:var(--orange);margin-bottom:5px}
 .chat-message.user .chat-speaker{color:#c6deff}
-.chat-form{display:flex;gap:9px;padding:15px;border-top:1px solid var(--line);
- background:#192534}
+.chat-form{display:flex;gap:9px;padding:15px;
+ border-top:1px solid var(--line);background:#192534}
 .chat-form input{flex:1}
-.chat-suggestions{display:flex;flex-wrap:wrap;gap:8px;padding:12px 17px;
- background:#141f2d;border-bottom:1px solid var(--line)}
-.suggestion{background:#2d4055;color:#e8edf5;border:1px solid #465d75;
- border-radius:30px;padding:9px 12px;font-size:12px}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:8px;
+ padding:12px 17px;background:#141f2d;
+ border-bottom:1px solid var(--line)}
+.suggestion{background:#2d4055;color:#e8edf5;
+ border:1px solid #465d75;border-radius:30px;
+ padding:9px 12px;font-size:12px}
 .suggestion:hover{border-color:var(--orange)}
-.coach-proposal{padding:20px;margin-top:18px;background:#172638;
- border:1px solid var(--orange);border-radius:13px}
+.coach-proposal{padding:20px;margin-top:18px;
+ background:#172638;border:1px solid var(--orange);
+ border-radius:13px}
 .coach-proposal h3{color:var(--orange)}
 .coach-hint{background:#172433;border-left:3px solid var(--orange);
  padding:14px;border-radius:6px;color:var(--muted);margin-top:14px}
-.schema-item{border-bottom:1px solid var(--line);padding:13px 0}
+.schema-item{border-bottom:1px solid var(--line);padding:14px 0}
 .schema-item:last-of-type{border-bottom:0}
 .schema-item strong{color:var(--orange)}
 .schema-item p{margin:6px 0;color:var(--muted)}
-@media(max-width:950px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.warning{background:#3d3027;border-left:3px solid #ffc17a;
+ padding:12px;border-radius:7px;margin:12px 0;color:#ffe2bb;
+ white-space:pre-line}
+.summary-grid{display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:12px;margin:15px 0}
+.summary-box{background:#253245;border-radius:10px;padding:14px}
+.summary-box strong{display:block;color:var(--orange);
+ font-size:22px;margin-top:7px}
+.summary-box small{color:var(--muted)}
+@media(max-width:950px){
+ .kpis{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:750px){
- .app{display:block}.sidebar{width:100%;padding:12px}
- .logo{margin-bottom:12px}.menu{flex-direction:row;overflow-x:auto}
+ .app{display:block}
+ .sidebar{width:100%;padding:12px}
+ .logo{margin-bottom:12px}
+ .menu{flex-direction:row;overflow-x:auto}
  .menu button{white-space:nowrap;flex-shrink:0}
- .main{padding:15px}.grid{grid-template-columns:1fr}
+ .main{padding:15px}
+ .grid{grid-template-columns:1fr}
  .day{min-height:62px;padding:3px;font-size:11px}
- .day-entry{font-size:9px;padding:2px}.panel{padding:16px}
- .chat-messages{height:390px}.chat-message{max-width:94%}
+ .day-entry{font-size:9px;padding:2px}
+ .panel{padding:16px}
+ .chat-messages{height:390px}
+ .chat-message{max-width:94%}
+ .summary-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -151,7 +181,7 @@ dialog::backdrop{background:#000c}
   <strong>🚴 MIJN TRAININGSPLAN</strong>
   <small>CYCLING PERFORMANCE 2027</small>
  </div>
- <nav class="menu" aria-label="Hoofdnavigatie">
+ <nav class="menu">
   <button data-page="dashboard" class="active">📊 Dashboard</button>
   <button data-page="coach">🤖 Mijn Coach</button>
   <button data-page="kalender">📅 Kalender</button>
@@ -161,6 +191,7 @@ dialog::backdrop{background:#000c}
   <button data-page="instellingen">⚙️ Instellingen</button>
  </nav>
 </aside>
+
 <main class="main">
 <h1 id="paginaTitel">Dashboard</h1>
 
@@ -168,7 +199,7 @@ dialog::backdrop{background:#000c}
 <div id="dashboard" class="page active">
  <div class="hero">
   <h2>Jouw prestaties. Jouw doelen. 🚴</h2>
-  <p class="muted">Plan slimmer en volg je vooruitgang.</p>
+  <p class="muted">Plan slim en volg je vooruitgang.</p>
   <button type="button" class="btn" id="openCoach">
    🤖 Chat met je Cycling Coach
   </button>
@@ -187,12 +218,18 @@ dialog::backdrop{background:#000c}
   <p id="doelTekst" class="muted"></p>
   <form id="doelForm">
    <div class="grid">
-    <div><label for="doelWeek">Week</label>
-     <input type="week" id="doelWeek" required></div>
-    <div><label for="nieuwDoel">Doel in km</label>
-     <input type="number" id="nieuwDoel" min="1" required></div>
+    <div>
+     <label for="doelWeek">Week</label>
+     <input type="week" id="doelWeek" required>
+    </div>
+    <div>
+     <label for="nieuwDoel">Doel in km</label>
+     <input type="number" id="nieuwDoel" min="1" required>
+    </div>
    </div>
-   <div class="actions"><button class="btn">Weekdoel opslaan</button></div>
+   <div class="actions">
+    <button class="btn">Weekdoel opslaan</button>
+   </div>
   </form>
  </section>
  <section class="panel">
@@ -208,27 +245,29 @@ dialog::backdrop{background:#000c}
 <!-- CYCLING COACH -->
 <div id="coach" class="page">
  <div class="hero">
-  <h2>🤖 Mijn Cycling Coach</h2>
+  <h2>🤖 Mijn Cycling Coach 2.0</h2>
   <p class="muted">
-   Laat een losse training of een volledig schema van
-   één of twee weken maken. De coach bekijkt je
-   geregistreerde trainingen en stelt zo nodig vragen.
+   Stel vragen, plan trainingen en laat een schema
+   voor één of twee weken maken. De coach kijkt ook
+   naar je bestaande kalender.
   </p>
  </div>
  <div class="chat-app">
   <div class="chat-header">
    <div class="chat-avatar">🚴</div>
-   <div><strong>Mijn Cycling Coach</strong>
-    <small>● Gratis • Regelgebaseerd</small></div>
+   <div>
+    <strong>Mijn Cycling Coach</strong>
+    <small>● Gratis • Slimme trainingsregels</small>
+   </div>
   </div>
   <div class="chat-suggestions">
    <button type="button" class="suggestion"
-    data-chat="Maak een trainingsschema voor 2 weken.">
-    📅 Schema voor 2 weken
+    data-chat="Maak een trainingsschema voor 1 week.">
+    📅 Schema 1 week
    </button>
    <button type="button" class="suggestion"
-    data-chat="Maak een trainingsschema voor 1 week.">
-    📅 Schema voor 1 week
+    data-chat="Maak een trainingsschema voor 2 weken.">
+    📅 Schema 2 weken
    </button>
    <button type="button" class="suggestion"
     data-chat="Ik wil morgen 60 minuten op Zwift fietsen.">
@@ -238,31 +277,47 @@ dialog::backdrop{background:#000c}
     data-chat="Hoe heb ik de afgelopen week getraind?">
     📊 Mijn trainingsweek
    </button>
+   <button type="button" class="suggestion"
+    data-chat="Wat staat er de komende week in mijn kalender?">
+    🗓️ Mijn planning
+   </button>
   </div>
-  <div class="chat-messages" id="coachChat"
+  <div id="coachChat" class="chat-messages"
    role="log" aria-live="polite"></div>
-  <form class="chat-form" id="coachChatForm">
-   <input id="coachBericht" type="text" maxlength="500"
+  <form id="coachChatForm" class="chat-form">
+   <input type="text" id="coachBericht" maxlength="500"
     autocomplete="off" required
-    placeholder="Typ je bericht aan de coach..."
-    aria-label="Bericht aan je coach">
-   <button class="btn" type="submit">➤</button>
+    placeholder="Stel je coach een vraag...">
+   <button class="btn">➤</button>
   </form>
  </div>
  <div id="coachVoorstel" class="coach-proposal hidden"></div>
  <section class="panel" style="margin-top:20px">
   <div class="row">
-   <h2>📊 Wat weet je coach?</h2>
+   <h2>📊 Mijn trainingsbelasting</h2>
    <button type="button" class="btn secondary"
     id="wisCoachChat">Gesprek wissen</button>
   </div>
+  <div class="summary-grid">
+   <div class="summary-box">
+    <small>Laatste 7 dagen</small>
+    <strong id="coachWeekKm">0 km</strong>
+   </div>
+   <div class="summary-box">
+    <small>Trainingstijd</small>
+    <strong id="coachWeekTijd">0:00</strong>
+   </div>
+   <div class="summary-box">
+    <small>Trainingen</small>
+    <strong id="coachWeekAantal">0</strong>
+   </div>
+  </div>
   <p id="coachAnalyse" class="muted"></p>
   <div class="coach-hint">
-   Dit is geen echte AI. De coach herkent vaste
-   begrippen en stelt een schema samen met eenvoudige
-   trainingsregels. Hij kan blessures, herstelbehoefte
-   en trainingsbelasting niet volledig beoordelen.
-   Controleer het voorstel voordat je het opslaat.
+   Dit is een regelgebaseerde coach en geen AI.
+   De coach gebruikt geregistreerde ritten en planning.
+   Dat geeft geen volledig beeld van je herstel.
+   Controleer voorgestelde trainingen altijd zelf.
   </div>
  </section>
 </div>
@@ -273,9 +328,11 @@ dialog::backdrop{background:#000c}
   <div class="row">
    <h2>🗓️ Trainingskalender</h2>
    <div class="actions">
-    <button type="button" class="btn secondary" id="vorigeMaand">←</button>
+    <button type="button" class="btn secondary"
+     id="vorigeMaand">←</button>
     <strong id="kalenderTitel"></strong>
-    <button type="button" class="btn secondary" id="volgendeMaand">→</button>
+    <button type="button" class="btn secondary"
+     id="volgendeMaand">→</button>
    </div>
   </div>
   <p class="muted">🟠 Gepland &nbsp; 🟢 Uitgevoerd</p>
@@ -284,10 +341,10 @@ dialog::backdrop{background:#000c}
    <h3 id="gekozenDatum"></h3>
    <div id="dagTrainingen"></div>
    <div class="actions">
-    <button type="button" class="btn" id="planOpDag">+ Plannen</button>
-    <button type="button" class="btn secondary" id="ritOpDag">
-     + Uitgevoerde rit
-    </button>
+    <button type="button" class="btn"
+     id="planOpDag">+ Plannen</button>
+    <button type="button" class="btn secondary"
+     id="ritOpDag">+ Uitgevoerde rit</button>
    </div>
   </div>
  </section>
@@ -299,72 +356,118 @@ dialog::backdrop{background:#000c}
   <h2 id="planningTitel">📅 Training plannen</h2>
   <form id="planningForm">
    <div class="grid">
-    <div><label for="planDatum">Datum</label>
-     <input type="date" id="planDatum" required></div>
-    <div><label for="planType">Soort training</label>
+    <div>
+     <label for="planDatum">Datum</label>
+     <input type="date" id="planDatum" required>
+    </div>
+    <div>
+     <label for="planType">Soort training</label>
      <select id="planType">
-      <option>Duurtraining</option><option>Hersteltraining</option>
-      <option>Intervaltraining</option><option>Tempotraining</option>
-      <option>Indoor / Zwift</option><option>Mountainbike</option>
+      <option>Duurtraining</option>
+      <option>Hersteltraining</option>
+      <option>Intervaltraining</option>
+      <option>Tempotraining</option>
+      <option>Indoor / Zwift</option>
+      <option>Mountainbike</option>
       <option>Overig</option>
-     </select></div>
-    <div><label for="planUren">Uren</label>
-     <input type="number" id="planUren" min="0" value="1" required></div>
-    <div><label for="planMinuten">Minuten</label>
-     <input type="number" id="planMinuten" min="0" max="59"
-      value="0" required></div>
-    <div><label for="planIntensiteit">Intensiteit</label>
+     </select>
+    </div>
+    <div>
+     <label for="planUren">Uren</label>
+     <input type="number" id="planUren"
+      min="0" value="1" required>
+    </div>
+    <div>
+     <label for="planMinuten">Minuten</label>
+     <input type="number" id="planMinuten"
+      min="0" max="59" value="0" required>
+    </div>
+    <div>
+     <label for="planIntensiteit">Intensiteit</label>
      <select id="planIntensiteit">
-      <option>Rustig</option><option>Gemiddeld</option>
+      <option>Rustig</option>
+      <option>Gemiddeld</option>
       <option>Intensief</option>
-     </select></div>
-    <div><label for="planNotitie">Opmerking</label>
-     <input id="planNotitie" maxlength="200"></div>
+     </select>
+    </div>
+    <div>
+     <label for="planNotitie">Opmerking</label>
+     <input id="planNotitie" maxlength="200">
+    </div>
    </div>
    <div id="zwiftVeld" class="hidden">
     <h3>⚡ Zwift</h3>
     <div class="grid">
-     <div><label for="zwiftKeuze">Kies uit bibliotheek</label>
-      <select id="zwiftKeuze"></select></div>
-     <div><label for="zwiftSoort">Type</label>
+     <div>
+      <label for="zwiftKeuze">Mijn bibliotheek</label>
+      <select id="zwiftKeuze"></select>
+     </div>
+     <div>
+      <label for="zwiftSoort">Type</label>
       <select id="zwiftSoort">
-       <option>Route</option><option>Workout</option>
-       <option>Race</option><option>Event</option>
-      </select></div>
-     <div><label for="zwiftNaam">Route / workout</label>
-      <input id="zwiftNaam" maxlength="150"></div>
+       <option>Route</option>
+       <option>Workout</option>
+       <option>Race</option>
+       <option>Event</option>
+      </select>
+     </div>
+     <div>
+      <label for="zwiftNaam">Route / workout</label>
+      <input id="zwiftNaam" maxlength="150">
+     </div>
     </div>
    </div>
    <div class="actions">
-    <button class="btn" id="planningOpslaan">Training inplannen</button>
+    <button class="btn" id="planningOpslaan">
+     Training inplannen
+    </button>
     <button type="button" class="btn secondary hidden"
      id="planningAnnuleren">Annuleren</button>
    </div>
   </form>
  </section>
  <section class="panel">
-  <h2>🗓️ Mijn planning</h2><div id="planningLijst"></div>
+  <h2>🗓️ Mijn planning</h2>
+  <div id="planningLijst"></div>
  </section>
  <section class="panel" id="trainingSectie">
-  <h2 id="trainingTitel">➕ Uitgevoerde training toevoegen</h2>
+  <h2 id="trainingTitel">
+   ➕ Uitgevoerde training toevoegen
+  </h2>
   <form id="trainingForm">
    <div class="grid">
-    <div><label for="datum">Datum</label>
-     <input type="date" id="datum" required></div>
-    <div><label for="afstand">Afstand (km)</label>
-     <input type="number" id="afstand" min="0.01" step="0.01" required></div>
-    <div><label for="trainingsuren">Uren</label>
-     <input type="number" id="trainingsuren" min="0" value="0" required></div>
-    <div><label for="minuten">Minuten</label>
-     <input type="number" id="minuten" min="0" max="59"
-      value="0" required></div>
-    <div><label for="hartslag">Gem. hartslag</label>
-     <input type="number" id="hartslag" min="1"></div>
-    <div><label for="vermogen">Gem. wattage</label>
-     <input type="number" id="vermogen" min="1"></div>
+    <div>
+     <label for="datum">Datum</label>
+     <input type="date" id="datum" required>
+    </div>
+    <div>
+     <label for="afstand">Afstand (km)</label>
+     <input type="number" id="afstand"
+      min="0.01" step="0.01" required>
+    </div>
+    <div>
+     <label for="trainingsuren">Uren</label>
+     <input type="number" id="trainingsuren"
+      min="0" value="0" required>
+    </div>
+    <div>
+     <label for="minuten">Minuten</label>
+     <input type="number" id="minuten"
+      min="0" max="59" value="0" required>
+    </div>
+    <div>
+     <label for="hartslag">Gem. hartslag</label>
+     <input type="number" id="hartslag" min="1">
+    </div>
+    <div>
+     <label for="vermogen">Gem. wattage</label>
+     <input type="number" id="vermogen" min="1">
+    </div>
    </div>
    <div class="actions">
-    <button class="btn" id="trainingOpslaan">Training opslaan</button>
+    <button class="btn" id="trainingOpslaan">
+     Training opslaan
+    </button>
     <button type="button" class="btn secondary hidden"
      id="trainingAnnuleren">Annuleren</button>
    </div>
@@ -382,43 +485,73 @@ dialog::backdrop{background:#000c}
   <h2>⚡ Mijn Zwift-bibliotheek</h2>
   <form id="zwiftForm">
    <div class="grid">
-    <div><label for="bibSoort">Soort</label>
-     <select id="bibSoort"><option>Route</option>
-      <option>Workout</option></select></div>
-    <div><label for="bibNaam">Naam</label>
-     <input id="bibNaam" maxlength="150" required></div>
-    <div><label for="bibWereld">Wereld / categorie</label>
-     <input id="bibWereld" maxlength="100"></div>
-    <div><label for="bibUren">Uren</label>
-     <input id="bibUren" type="number" min="0" value="0"></div>
-    <div><label for="bibMinuten">Minuten</label>
-     <input id="bibMinuten" type="number" min="0" max="59" value="45"></div>
-    <div><label for="bibNotitie">Omschrijving</label>
-     <input id="bibNotitie" maxlength="200"></div>
+    <div>
+     <label for="bibSoort">Soort</label>
+     <select id="bibSoort">
+      <option>Route</option>
+      <option>Workout</option>
+     </select>
+    </div>
+    <div>
+     <label for="bibNaam">Naam</label>
+     <input id="bibNaam" maxlength="150" required>
+    </div>
+    <div>
+     <label for="bibWereld">Wereld / categorie</label>
+     <input id="bibWereld" maxlength="100">
+    </div>
+    <div>
+     <label for="bibUren">Uren</label>
+     <input id="bibUren" type="number" min="0" value="0">
+    </div>
+    <div>
+     <label for="bibMinuten">Minuten</label>
+     <input id="bibMinuten" type="number"
+      min="0" max="59" value="45">
+    </div>
+    <div>
+     <label for="bibNotitie">Omschrijving</label>
+     <input id="bibNotitie" maxlength="200">
+    </div>
    </div>
-   <div class="actions"><button class="btn">+ Toevoegen</button></div>
+   <div class="actions">
+    <button class="btn">+ Toevoegen</button>
+   </div>
   </form>
  </section>
  <section class="panel">
-  <h2>Routes en workouts</h2><div id="zwiftLijst" class="library"></div>
+  <h2>Routes en workouts</h2>
+  <div id="zwiftLijst" class="library"></div>
  </section>
 </div>
 
 <!-- STATISTIEKEN -->
 <div id="statistieken" class="page">
- <section class="panel"><h2>📊 Kilometers per week</h2>
-  <div id="weekGrafiek" class="chart"></div></section>
- <section class="panel"><h2>📊 Kilometers per maand</h2>
-  <div id="maandGrafiek" class="chart"></div></section>
+ <section class="panel">
+  <h2>📊 Kilometers per week</h2>
+  <div id="weekGrafiek" class="chart"></div>
+ </section>
+ <section class="panel">
+  <h2>📊 Kilometers per maand</h2>
+  <div id="maandGrafiek" class="chart"></div>
+ </section>
  <section class="panel">
   <h2>🏆 Records</h2>
   <div class="kpis">
-   <div class="kpi">Langste rit<strong id="langsteRit">0</strong></div>
-   <div class="kpi">Snelste rit<strong id="snelsteRit">0</strong></div>
-   <div class="kpi">Hoogste gem. hartslag
-    <strong id="hoogsteHartslag">—</strong></div>
-   <div class="kpi">Hoogste gem. vermogen
-    <strong id="hoogsteWatt">—</strong></div>
+   <div class="kpi">
+    Langste rit<strong id="langsteRit">0</strong>
+   </div>
+   <div class="kpi">
+    Snelste rit<strong id="snelsteRit">0</strong>
+   </div>
+   <div class="kpi">
+    Hoogste gem. hartslag
+    <strong id="hoogsteHartslag">—</strong>
+   </div>
+   <div class="kpi">
+    Hoogste gem. vermogen
+    <strong id="hoogsteWatt">—</strong>
+   </div>
   </div>
  </section>
 </div>
@@ -427,41 +560,56 @@ dialog::backdrop{background:#000c}
 <div id="instellingen" class="page">
  <section class="panel">
   <h2>💾 Back-up</h2>
-  <p class="muted">Bewaar je trainingen, planning, doelen,
-   Zwift-bibliotheek en coachgesprek.</p>
+  <p class="muted">
+   Bewaar je trainingen, planning, weekdoelen,
+   Zwift-routes en coachgesprek.
+  </p>
   <div class="actions">
    <button type="button" class="btn" id="backupKnop">
     Download back-up
    </button>
-   <button type="button" class="btn secondary" id="herstelKnop">
-    Back-up terugzetten
-   </button>
-   <input type="file" class="hidden" id="herstelBestand"
-    accept=".json,application/json">
+   <button type="button" class="btn secondary"
+    id="herstelKnop">Back-up terugzetten</button>
+   <input type="file" class="hidden"
+    id="herstelBestand" accept=".json,application/json">
   </div>
  </section>
 </div>
 </main>
 </div>
 
+<!-- TRAINING VOLTOOIEN -->
 <dialog id="voltooiVenster">
  <h2>✅ Training voltooid</h2>
  <p id="voltooiBeschrijving"></p>
  <form id="voltooiForm">
   <div class="grid">
-   <div><label for="voltooiDatum">Datum</label>
-    <input id="voltooiDatum" type="date" required></div>
-   <div><label for="voltooiAfstand">Afstand (km)</label>
-    <input id="voltooiAfstand" type="number" min="0.01"
-     step="0.01" required></div>
-   <div><label for="voltooiUren">Uren</label>
-    <input id="voltooiUren" type="number" min="0" required></div>
-   <div><label for="voltooiMinuten">Minuten</label>
-    <input id="voltooiMinuten" type="number" min="0" max="59" required></div>
-   <div><label for="voltooiHartslag">Hartslag</label>
-    <input id="voltooiHartslag" type="number" min="1"></div>
-   <div><label for="voltooiVermogen">Wattage</label>
-    <input id="voltooiVermogen" type="number" min="1"></div>
+   <div>
+    <label for="voltooiDatum">Datum</label>
+    <input id="voltooiDatum" type="date" required>
+   </div>
+   <div>
+    <label for="voltooiAfstand">Afstand (km)</label>
+    <input id="voltooiAfstand" type="number"
+     min="0.01" step="0.01" required>
+   </div>
+   <div>
+    <label for="voltooiUren">Uren</label>
+    <input id="voltooiUren" type="number" min="0" required>
+   </div>
+   <div>
+    <label for="voltooiMinuten">Minuten</label>
+    <input id="voltooiMinuten" type="number"
+     min="0" max="59" required>
+   </div>
+   <div>
+    <label for="voltooiHartslag">Hartslag</label>
+    <input id="voltooiHartslag" type="number" min="1">
+   </div>
+   <div>
+    <label for="voltooiVermogen">Wattage</label>
+    <input id="voltooiVermogen" type="number" min="1">
+   </div>
   </div>
   <div class="actions">
    <button class="btn">Training opslaan</button>
@@ -474,7 +622,9 @@ dialog::backdrop{background:#000c}
 <script>
 "use strict";
 
-// VASTE OPSLAGSLEUTELS - NIET VERANDEREN
+// ================================
+// BESTAANDE OPSLAGSLEUTELS
+// ================================
 const trainingKey="mijntrainingsplan2027";
 const planningKey="mijntrainingsplan2027_planning";
 const doelenKey="mijntrainingsplan2027_doelen";
@@ -489,7 +639,10 @@ function laden(key,standaard){
  try{
   const s=localStorage.getItem(key);
   return s?JSON.parse(s):standaard;
- }catch(e){console.error(e);return standaard}
+ }catch(e){
+  console.error(e);
+  return standaard;
+ }
 }
 function bewaren(key,data){
  try{
@@ -501,6 +654,7 @@ function bewaren(key,data){
   return false;
  }
 }
+
 let trainingen=laden(trainingKey,[]);
 let planning=laden(planningKey,[]);
 let weekdoelen=laden(doelenKey,{});
@@ -514,40 +668,54 @@ if(!Array.isArray(coachGeschiedenis))coachGeschiedenis=[];
 if(!weekdoelen||typeof weekdoelen!=="object"||
  Array.isArray(weekdoelen))weekdoelen={};
 
-let bewerkPlanId=null,bewerkTrainingId=null,voltooiPlanId=null;
+let bewerkPlanId=null;
+let bewerkTrainingId=null;
+let voltooiPlanId=null;
 let gekozenDag=null;
 let getoondeMaand=new Date(
  new Date().getFullYear(),new Date().getMonth(),1
 );
-let coachVoorstelData=null;
 let coachContext=leegCoachContext();
+let coachVoorstelData=null;
 
-function leegCoachContext(){
- return {
-  modus:null,weken:null,doel:null,gevoel:null,
-  locatie:null,datum:null,minuten:null,
-  dagen:[],dagMinuten:{},wachtOp:null
- };
+// ================================
+// HULPFUNCTIES
+// ================================
+function idMaken(){
+ return crypto.randomUUID();
 }
-function idMaken(){return crypto.randomUUID()}
 function datumKey(d){
  return d.getFullYear()+"-"+
   String(d.getMonth()+1).padStart(2,"0")+"-"+
   String(d.getDate()).padStart(2,"0");
 }
-function alsDatum(s){return new Date(s+"T12:00:00")}
+function alsDatum(s){
+ return new Date(s+"T12:00:00");
+}
 function datumTekst(s){
  return alsDatum(s).toLocaleDateString("nl-NL",{
   day:"numeric",month:"long",year:"numeric"
  });
 }
-function kmTekst(v){return Number(v).toFixed(1).replace(".",",")}
-function tijdTekst(m){
- return Math.floor(m/60)+":"+String(m%60).padStart(2,"0");
+function datumPlus(s,aantal){
+ const d=alsDatum(s);
+ d.setDate(d.getDate()+aantal);
+ return datumKey(d);
 }
-function snelheid(km,m){return m>0?km/(m/60):0}
+function kmTekst(v){
+ return Number(v).toFixed(1).replace(".",",");
+}
+function tijdTekst(m){
+ return Math.floor(m/60)+":"+
+  String(m%60).padStart(2,"0");
+}
+function snelheid(km,m){
+ return m>0?km/(m/60):0;
+}
 function totaalKm(a){
- return a.reduce((som,t)=>som+Number(t.afstand||0),0);
+ return a.reduce(
+  (som,t)=>som+Number(t.afstand||0),0
+ );
 }
 function node(tag,tekst="",klasse=""){
  const n=document.createElement(tag);
@@ -555,9 +723,11 @@ function node(tag,tekst="",klasse=""){
  if(klasse)n.className=klasse;
  return n;
 }
-function knop(t,actie,klasse="btn"){
- const b=node("button",t,klasse);
- b.type="button";b.onclick=actie;return b;
+function knop(tekst,actie,klasse="btn"){
+ const b=node("button",tekst,klasse);
+ b.type="button";
+ b.onclick=actie;
+ return b;
 }
 function maandag(d){
  const n=new Date(d);
@@ -569,10 +739,11 @@ function isoWeek(d){
   d.getFullYear(),d.getMonth(),d.getDate()
  ));
  x.setUTCDate(x.getUTCDate()+4-(x.getUTCDay()||7));
- const y=x.getUTCFullYear();
- const b=new Date(Date.UTC(y,0,1));
- return y+"-W"+
-  String(Math.ceil(((x-b)/86400000+1)/7)).padStart(2,"0");
+ const jaar=x.getUTCFullYear();
+ const begin=new Date(Date.UTC(jaar,0,1));
+ return jaar+"-W"+String(
+  Math.ceil(((x-begin)/86400000+1)/7)
+ ).padStart(2,"0");
 }
 function weekBegin(code){
  const [jaar,week]=code.split("-W").map(Number);
@@ -580,113 +751,165 @@ function weekBegin(code){
  d.setDate(d.getDate()+(week-1)*7);
  return d;
 }
+function isZwaar(t){
+ return t.type==="Intervaltraining"||
+  t.type==="Tempotraining"||
+  t.coachSoort==="Intervaltraining"||
+  t.coachSoort==="Tempotraining"||
+  t.intensiteit==="Intensief";
+}
 
+// ================================
 // NAVIGATIE
+// ================================
 const titels={
- dashboard:"Dashboard",coach:"Mijn Cycling Coach",
- kalender:"Kalender",trainingen:"Trainingen",
- zwift:"Zwift",statistieken:"Statistieken",
+ dashboard:"Dashboard",
+ coach:"Mijn Cycling Coach",
+ kalender:"Kalender",
+ trainingen:"Trainingen",
+ zwift:"Zwift",
+ statistieken:"Statistieken",
  instellingen:"Instellingen"
 };
 function openPagina(naam){
- document.querySelectorAll(".page").forEach(p=>
-  p.classList.toggle("active",p.id===naam));
- document.querySelectorAll("[data-page]").forEach(b=>
-  b.classList.toggle("active",b.dataset.page===naam));
+ document.querySelectorAll(".page").forEach(p=>{
+  p.classList.toggle("active",p.id===naam);
+ });
+ document.querySelectorAll("[data-page]").forEach(b=>{
+  b.classList.toggle("active",b.dataset.page===naam);
+ });
  el("paginaTitel").textContent=titels[naam]||naam;
  window.scrollTo(0,0);
 }
-document.querySelectorAll("[data-page]").forEach(b=>
- b.onclick=()=>openPagina(b.dataset.page));
+document.querySelectorAll("[data-page]").forEach(b=>{
+ b.onclick=()=>openPagina(b.dataset.page);
+});
 el("openCoach").onclick=()=>openPagina("coach");
 
+// ================================
 // WEEKDOEL
+// ================================
 function weekdoelBijwerken(){
- const week=val("doelWeek");if(!week)return;
+ const week=val("doelWeek");
+ if(!week)return;
  const start=weekBegin(week);
- const einde=new Date(start);einde.setDate(einde.getDate()+7);
+ const einde=new Date(start);
+ einde.setDate(einde.getDate()+7);
  const doel=Number(weekdoelen[week])||150;
  const gereden=totaalKm(trainingen.filter(t=>{
-  const d=alsDatum(t.datum);return d>=start&&d<einde;
+  const d=alsDatum(t.datum);
+  return d>=start&&d<einde;
  }));
  const zondag=new Date(einde);
  zondag.setDate(zondag.getDate()-1);
  el("weekPeriode").textContent=
-  datumTekst(datumKey(start))+" t/m "+datumTekst(datumKey(zondag));
- el("doelGetal").textContent=kmTekst(gereden)+" / "+doel+" km";
+  datumTekst(datumKey(start))+" t/m "+
+  datumTekst(datumKey(zondag));
+ el("doelGetal").textContent=
+  kmTekst(gereden)+" / "+doel+" km";
  el("voortgangBalk").style.width=
   Math.min(100,gereden/doel*100)+"%";
- el("doelTekst").textContent=gereden>=doel
-  ?"🎉 Weekdoel bereikt!"
-  :"Nog "+kmTekst(doel-gereden)+" km te gaan.";
+ el("doelTekst").textContent=
+  gereden>=doel
+   ?"🎉 Weekdoel bereikt!"
+   :"Nog "+kmTekst(doel-gereden)+" km te gaan.";
  el("nieuwDoel").value=doel;
 }
 el("doelWeek").onchange=weekdoelBijwerken;
 el("doelForm").onsubmit=e=>{
  e.preventDefault();
- const week=val("doelWeek"),doel=num("nieuwDoel");
+ const week=val("doelWeek");
+ const doel=num("nieuwDoel");
  if(!week||!Number.isFinite(doel)||doel<=0)return;
  const nieuw={...weekdoelen,[week]:doel};
  if(bewaren(doelenKey,nieuw)){
-  weekdoelen=nieuw;weekdoelBijwerken();
+  weekdoelen=nieuw;
+  weekdoelBijwerken();
  }
 };
 
+// ================================
 // ZWIFT
+// ================================
 el("zwiftForm").onsubmit=e=>{
  e.preventDefault();
  const naam=val("bibNaam").trim();
- const min=num("bibUren")*60+num("bibMinuten");
- if(!naam||!Number.isFinite(min)||min<0)return;
+ const minuten=num("bibUren")*60+num("bibMinuten");
+ if(!naam||!Number.isFinite(minuten)||minuten<0)return;
  const item={
-  id:idMaken(),naam,soort:val("bibSoort"),
-  wereld:val("bibWereld"),minuten:min,notitie:val("bibNotitie")
+  id:idMaken(),
+  naam,
+  soort:val("bibSoort"),
+  wereld:val("bibWereld"),
+  minuten,
+  notitie:val("bibNotitie")
  };
  const nieuw=[...zwiftBibliotheek,item];
  if(bewaren(zwiftKey,nieuw)){
   zwiftBibliotheek=nieuw;
-  el("zwiftForm").reset();allesBijwerken();
+  el("zwiftForm").reset();
+  allesBijwerken();
  }
 };
 function toonBibliotheek(){
- const lijst=el("zwiftLijst");lijst.replaceChildren();
- if(!zwiftBibliotheek.length)
+ const lijst=el("zwiftLijst");
+ lijst.replaceChildren();
+ if(!zwiftBibliotheek.length){
   lijst.append(node("p","Nog geen routes of workouts."));
+ }
  zwiftBibliotheek.forEach(z=>{
-  const k=node("div","","item");
-  k.append(node("h3",z.naam),
-   node("p",z.soort+" • "+(z.wereld||"Zwift")));
-  if(z.minuten>0)
-   k.append(node("p","⏱️ "+tijdTekst(z.minuten)+" uur"));
-  if(z.notitie)k.append(node("p",z.notitie));
-  const a=node("div","","actions");
-  a.append(
+  const kaart=node("div","","item");
+  kaart.append(
+   node("h3",z.naam),
+   node("p",z.soort+" • "+(z.wereld||"Zwift"))
+  );
+  if(z.minuten>0){
+   kaart.append(node(
+    "p","⏱️ "+tijdTekst(z.minuten)+" uur"
+   ));
+  }
+  if(z.notitie)kaart.append(node("p",z.notitie));
+  const acties=node("div","","actions");
+  acties.append(
    knop("Inplannen",()=>{
-    resetPlanning();openPagina("trainingen");
+    resetPlanning();
+    openPagina("trainingen");
     el("planType").value="Indoor / Zwift";
-    toonZwift();el("zwiftKeuze").value=z.id;kiesZwift();
-    el("planningSectie").scrollIntoView({behavior:"smooth"});
+    toonZwift();
+    el("zwiftKeuze").value=z.id;
+    kiesZwift();
+    el("planningSectie").scrollIntoView({
+     behavior:"smooth"
+    });
    }),
    knop("Verwijderen",()=>{
     if(!confirm("Route of workout verwijderen?"))return;
     const nieuw=zwiftBibliotheek.filter(x=>x.id!==z.id);
     if(bewaren(zwiftKey,nieuw)){
-     zwiftBibliotheek=nieuw;allesBijwerken();
+     zwiftBibliotheek=nieuw;
+     allesBijwerken();
     }
    },"btn secondary")
   );
-  k.append(a);lijst.append(k);
+  kaart.append(acties);
+  lijst.append(kaart);
  });
 }
 function updateZwiftKeuzes(){
- const s=el("zwiftKeuze"),oud=s.value;
+ const s=el("zwiftKeuze");
+ const oud=s.value;
  s.replaceChildren(new Option("Zelf invullen",""));
- zwiftBibliotheek.forEach(z=>
-  s.add(new Option(z.soort+" — "+z.naam,z.id)));
- if(zwiftBibliotheek.some(z=>z.id===oud))s.value=oud;
+ zwiftBibliotheek.forEach(z=>{
+  s.add(new Option(z.soort+" — "+z.naam,z.id));
+ });
+ if(zwiftBibliotheek.some(z=>z.id===oud)){
+  s.value=oud;
+ }
 }
 function kiesZwift(){
- const z=zwiftBibliotheek.find(x=>x.id===val("zwiftKeuze"));
+ const z=zwiftBibliotheek.find(
+  x=>x.id===val("zwiftKeuze")
+ );
  if(!z)return;
  el("zwiftSoort").value=z.soort;
  el("zwiftNaam").value=z.naam;
@@ -697,15 +920,18 @@ function kiesZwift(){
 }
 el("zwiftKeuze").onchange=kiesZwift;
 function toonZwift(){
- const ja=val("planType")==="Indoor / Zwift";
- el("zwiftVeld").classList.toggle("hidden",!ja);
- el("zwiftNaam").required=ja;
+ const actief=val("planType")==="Indoor / Zwift";
+ el("zwiftVeld").classList.toggle("hidden",!actief);
+ el("zwiftNaam").required=actief;
 }
 el("planType").onchange=toonZwift;
 
-// PLANNING
+// ================================
+// GEPLANDE TRAININGEN
+// ================================
 function resetPlanning(){
- bewerkPlanId=null;el("planningForm").reset();
+ bewerkPlanId=null;
+ el("planningForm").reset();
  el("planDatum").value=datumKey(new Date());
  el("planUren").value=1;
  el("planningTitel").textContent="📅 Training plannen";
@@ -721,26 +947,35 @@ el("planningForm").onsubmit=e=>{
  const naam=indoor?val("zwiftNaam").trim():null;
  if(!Number.isFinite(minuten)||minuten<=0||
   (indoor&&!naam)){
-  alert("Controleer de tijd en Zwift-naam.");return;
+  alert("Controleer tijd en Zwift-naam.");
+  return;
  }
  const oud=planning.find(p=>p.id===bewerkPlanId);
  const p={
-  ...(oud||{}),id:bewerkPlanId||idMaken(),
-  datum:val("planDatum"),type:val("planType"),
-  minuten,intensiteit:val("planIntensiteit"),
-  notitie:val("planNotitie"),zwiftNaam:naam,
+  ...(oud||{}),
+  id:bewerkPlanId||idMaken(),
+  datum:val("planDatum"),
+  type:val("planType"),
+  minuten,
+  intensiteit:val("planIntensiteit"),
+  notitie:val("planNotitie"),
+  zwiftNaam:naam,
   zwiftSoort:indoor?val("zwiftSoort"):null
  };
  const nieuw=bewerkPlanId
   ?planning.map(x=>x.id===bewerkPlanId?p:x)
   :[...planning,p];
  if(bewaren(planningKey,nieuw)){
-  planning=nieuw;resetPlanning();allesBijwerken();
+  planning=nieuw;
+  resetPlanning();
+  allesBijwerken();
  }
 };
 function bewerkPlanning(id){
- const p=planning.find(x=>x.id===id);if(!p)return;
- bewerkPlanId=id;el("planDatum").value=p.datum;
+ const p=planning.find(x=>x.id===id);
+ if(!p)return;
+ bewerkPlanId=id;
+ el("planDatum").value=p.datum;
  el("planType").value=p.type;
  el("planUren").value=Math.floor((p.minuten||0)/60);
  el("planMinuten").value=(p.minuten||0)%60;
@@ -754,10 +989,12 @@ function bewerkPlanning(id){
  el("planningOpslaan").textContent="Wijzigingen opslaan";
  el("planningAnnuleren").classList.remove("hidden");
  openPagina("trainingen");
- el("planningSectie").scrollIntoView({behavior:"smooth"});
+ el("planningSectie").scrollIntoView({
+  behavior:"smooth"
+ });
 }
 function verwijderPlanning(id){
- if(!confirm("Planning verwijderen?"))return;
+ if(!confirm("Geplande training verwijderen?"))return;
  const nieuw=planning.filter(p=>p.id!==id);
  if(bewaren(planningKey,nieuw)){
   planning=nieuw;
@@ -767,39 +1004,61 @@ function verwijderPlanning(id){
 }
 function planKaart(p){
  const k=node("div","","item");
- k.append(node("h3",datumTekst(p.datum)+" — "+p.type));
- k.append(node("p",Number.isFinite(p.minuten)
-  ?"⏱️ "+tijdTekst(p.minuten)+" uur"
-  :"Oude planning: "+kmTekst(p.afstand||0)+" km"));
- if(p.zwiftNaam)k.append(node("p","⚡ "+p.zwiftNaam));
- if(p.notitie)k.append(node("p",p.notitie));
- const a=node("div","","actions");
- a.append(
+ k.append(node(
+  "h3",datumTekst(p.datum)+" — "+p.type
+ ));
+ k.append(node(
+  "p",
+  Number.isFinite(p.minuten)
+   ?"⏱️ "+tijdTekst(p.minuten)+" uur"
+   :"Oude planning: "+kmTekst(p.afstand||0)+" km"
+ ));
+ if(p.intensiteit){
+  k.append(node("p","Intensiteit: "+p.intensiteit));
+ }
+ if(p.zwiftNaam){
+  k.append(node("p","⚡ "+p.zwiftNaam));
+ }
+ if(p.notitie){
+  k.append(node("p",p.notitie));
+ }
+ const acties=node("div","","actions");
+ acties.append(
   knop("✅ Voltooid",()=>openVoltooien(p.id)),
   knop("Aanpassen",()=>bewerkPlanning(p.id),"btn secondary"),
   knop("Verwijderen",()=>verwijderPlanning(p.id),"btn danger")
  );
- k.append(a);return k;
+ k.append(acties);
+ return k;
 }
 function toonPlanning(){
- const l=el("planningLijst");l.replaceChildren();
- if(!planning.length)
-  l.append(node("p","Nog geen trainingen gepland."));
- [...planning].sort((a,b)=>a.datum.localeCompare(b.datum))
-  .forEach(p=>l.append(planKaart(p)));
+ const lijst=el("planningLijst");
+ lijst.replaceChildren();
+ if(!planning.length){
+  lijst.append(node("p","Nog geen trainingen gepland."));
+ }
+ [...planning]
+  .sort((a,b)=>a.datum.localeCompare(b.datum))
+  .forEach(p=>lijst.append(planKaart(p)));
  const komende=el("komendeTrainingen");
  komende.replaceChildren();
  const vandaag=datumKey(new Date());
- const volgende=planning.filter(p=>p.datum>=vandaag)
-  .sort((a,b)=>a.datum.localeCompare(b.datum)).slice(0,3);
- if(!volgende.length)
+ const volgende=planning
+  .filter(p=>p.datum>=vandaag)
+  .sort((a,b)=>a.datum.localeCompare(b.datum))
+  .slice(0,3);
+ if(!volgende.length){
   komende.append(node("p","Geen aankomende trainingen."));
+ }
  volgende.forEach(p=>komende.append(planKaart(p)));
 }
 
+// ================================
 // UITGEVOERDE TRAININGEN
+// ================================
 function resetTraining(){
- bewerkTrainingId=null;el("trainingForm").reset();
+ bewerkTrainingId=null;
+ el("trainingForm").reset();
  el("datum").value=datumKey(new Date());
  el("trainingTitel").textContent=
   "➕ Uitgevoerde training toevoegen";
@@ -812,11 +1071,17 @@ el("trainingForm").onsubmit=e=>{
  const afstand=num("afstand");
  const minuten=num("trainingsuren")*60+num("minuten");
  if(!Number.isFinite(afstand)||afstand<=0||
-  !Number.isFinite(minuten)||minuten<=0)return;
+  !Number.isFinite(minuten)||minuten<=0){
+  alert("Vul een geldige afstand en tijd in.");
+  return;
+ }
  const oud=trainingen.find(t=>t.id===bewerkTrainingId);
  const rit={
-  ...(oud||{}),id:bewerkTrainingId||idMaken(),
-  datum:val("datum"),afstand,minuten,
+  ...(oud||{}),
+  id:bewerkTrainingId||idMaken(),
+  datum:val("datum"),
+  afstand,
+  minuten,
   hartslag:num("hartslag")||null,
   vermogen:num("vermogen")||null
  };
@@ -824,12 +1089,16 @@ el("trainingForm").onsubmit=e=>{
   ?trainingen.map(t=>t.id===bewerkTrainingId?rit:t)
   :[...trainingen,rit];
  if(bewaren(trainingKey,nieuw)){
-  trainingen=nieuw;resetTraining();allesBijwerken();
+  trainingen=nieuw;
+  resetTraining();
+  allesBijwerken();
  }
 };
 function bewerkTraining(id){
- const t=trainingen.find(x=>x.id===id);if(!t)return;
- bewerkTrainingId=id;el("datum").value=t.datum;
+ const t=trainingen.find(x=>x.id===id);
+ if(!t)return;
+ bewerkTrainingId=id;
+ el("datum").value=t.datum;
  el("afstand").value=t.afstand;
  el("trainingsuren").value=Math.floor(t.minuten/60);
  el("minuten").value=t.minuten%60;
@@ -839,7 +1108,9 @@ function bewerkTraining(id){
  el("trainingOpslaan").textContent="Wijzigingen opslaan";
  el("trainingAnnuleren").classList.remove("hidden");
  openPagina("trainingen");
- el("trainingSectie").scrollIntoView({behavior:"smooth"});
+ el("trainingSectie").scrollIntoView({
+  behavior:"smooth"
+ });
 }
 function verwijderTraining(id){
  if(!confirm("Rit verwijderen?"))return;
@@ -852,32 +1123,45 @@ function verwijderTraining(id){
 }
 function ritKaart(t){
  const k=node("div","","item done");
- k.append(node("h3",datumTekst(t.datum)+" — "+
-  kmTekst(t.afstand)+" km"));
- k.append(node("p",tijdTekst(t.minuten)+" uur • "+
-  kmTekst(snelheid(t.afstand,t.minuten))+" km/u"));
+ k.append(node(
+  "h3",datumTekst(t.datum)+" — "+kmTekst(t.afstand)+" km"
+ ));
+ k.append(node(
+  "p",
+  tijdTekst(t.minuten)+" uur • "+
+  kmTekst(snelheid(t.afstand,t.minuten))+" km/u"
+ ));
  if(t.type)k.append(node("p",t.type));
  if(t.zwiftNaam)k.append(node("p","⚡ "+t.zwiftNaam));
  if(t.hartslag)k.append(node("p","❤️ "+t.hartslag+" bpm"));
  if(t.vermogen)k.append(node("p","⚡ "+t.vermogen+" W"));
- const a=node("div","","actions");
- a.append(
+ const acties=node("div","","actions");
+ acties.append(
   knop("Aanpassen",()=>bewerkTraining(t.id),"btn secondary"),
   knop("Verwijderen",()=>verwijderTraining(t.id),"btn danger")
  );
- k.append(a);return k;
+ k.append(acties);
+ return k;
 }
 function toonTrainingen(){
- const l=el("trainingenLijst");l.replaceChildren();
- if(!trainingen.length)l.append(node("p","Nog geen trainingen."));
- [...trainingen].sort((a,b)=>b.datum.localeCompare(a.datum))
-  .forEach(t=>l.append(ritKaart(t)));
+ const lijst=el("trainingenLijst");
+ lijst.replaceChildren();
+ if(!trainingen.length){
+  lijst.append(node("p","Nog geen trainingen."));
+ }
+ [...trainingen]
+  .sort((a,b)=>b.datum.localeCompare(a.datum))
+  .forEach(t=>lijst.append(ritKaart(t)));
 }
 
+// ================================
 // TRAINING VOLTOOIEN
+// ================================
 function openVoltooien(id){
- const p=planning.find(x=>x.id===id);if(!p)return;
- voltooiPlanId=id;el("voltooiForm").reset();
+ const p=planning.find(x=>x.id===id);
+ if(!p)return;
+ voltooiPlanId=id;
+ el("voltooiForm").reset();
  el("voltooiDatum").value=datumKey(new Date());
  el("voltooiUren").value=Math.floor((p.minuten||0)/60);
  el("voltooiMinuten").value=(p.minuten||0)%60;
@@ -885,69 +1169,98 @@ function openVoltooien(id){
   p.type+" — "+datumTekst(p.datum);
  el("voltooiVenster").showModal();
 }
-el("sluitVoltooien").onclick=()=>el("voltooiVenster").close();
+el("sluitVoltooien").onclick=()=>{
+ el("voltooiVenster").close();
+};
 el("voltooiVenster").addEventListener("close",()=>{
  voltooiPlanId=null;
 });
 el("voltooiForm").onsubmit=e=>{
  e.preventDefault();
- const p=planning.find(x=>x.id===voltooiPlanId);if(!p)return;
+ const p=planning.find(x=>x.id===voltooiPlanId);
+ if(!p)return;
  const afstand=num("voltooiAfstand");
  const minuten=num("voltooiUren")*60+num("voltooiMinuten");
  if(!Number.isFinite(afstand)||afstand<=0||
-  !Number.isFinite(minuten)||minuten<=0)return;
+  !Number.isFinite(minuten)||minuten<=0){
+  alert("Vul een geldige afstand en tijd in.");
+  return;
+ }
  const rit={
-  id:idMaken(),datum:val("voltooiDatum"),afstand,minuten,
+  id:idMaken(),
+  datum:val("voltooiDatum"),
+  afstand,
+  minuten,
   hartslag:num("voltooiHartslag")||null,
   vermogen:num("voltooiVermogen")||null,
-  type:p.type,zwiftNaam:p.zwiftNaam||null
+  type:p.type,
+  zwiftNaam:p.zwiftNaam||null
  };
  const nieuw=[...trainingen,rit];
  if(!bewaren(trainingKey,nieuw))return;
  trainingen=nieuw;
  const rest=planning.filter(x=>x.id!==p.id);
- if(bewaren(planningKey,rest))planning=rest;
- else alert("Rit opgeslagen; verwijder planning nog handmatig.");
- el("voltooiVenster").close();allesBijwerken();
+ if(bewaren(planningKey,rest)){
+  planning=rest;
+ }else{
+  alert("Rit opgeslagen. Verwijder de planning handmatig.");
+ }
+ el("voltooiVenster").close();
+ allesBijwerken();
 };
 
+// ================================
 // KALENDER
+// ================================
 function kalenderBijwerken(){
- const g=el("kalenderGrid");g.replaceChildren();
+ const g=el("kalenderGrid");
+ g.replaceChildren();
  el("kalenderTitel").textContent=
   getoondeMaand.toLocaleDateString("nl-NL",{
    month:"long",year:"numeric"
   });
- ["Ma","Di","Wo","Do","Vr","Za","Zo"].forEach(d=>
-  g.append(node("div",d,"weekday")));
+ ["Ma","Di","Wo","Do","Vr","Za","Zo"].forEach(d=>{
+  g.append(node("div",d,"weekday"));
+ });
  const eerste=new Date(
-  getoondeMaand.getFullYear(),getoondeMaand.getMonth(),1
+  getoondeMaand.getFullYear(),
+  getoondeMaand.getMonth(),1
  );
  const verschuiving=(eerste.getDay()+6)%7;
  const dagen=new Date(
   eerste.getFullYear(),eerste.getMonth()+1,0
  ).getDate();
  const vakken=Math.ceil((verschuiving+dagen)/7)*7;
+
  for(let i=0;i<vakken;i++){
   const d=new Date(
-   eerste.getFullYear(),eerste.getMonth(),i-verschuiving+1
+   eerste.getFullYear(),eerste.getMonth(),
+   i-verschuiving+1
   );
   const key=datumKey(d);
   const vak=node("button","","day");
   vak.type="button";
   vak.setAttribute("aria-label","Bekijk "+datumTekst(key));
   vak.append(node("span",d.getDate()));
-  if(d.getMonth()!==eerste.getMonth())
+  if(d.getMonth()!==eerste.getMonth()){
    vak.classList.add("outside");
+  }
   if(key===gekozenDag)vak.classList.add("selected");
-  planning.filter(p=>p.datum===key).forEach(p=>
-   vak.append(node("span","📅 "+p.type,"day-entry")));
-  trainingen.filter(t=>t.datum===key).forEach(t=>
-   vak.append(node("span","✓ "+kmTekst(t.afstand)+" km",
-    "day-entry done")));
+  if(key===datumKey(new Date()))vak.classList.add("today");
+  planning.filter(p=>p.datum===key).forEach(p=>{
+   vak.append(node("span","📅 "+p.type,"day-entry"));
+  });
+  trainingen.filter(t=>t.datum===key).forEach(t=>{
+   vak.append(node(
+    "span","✓ "+kmTekst(t.afstand)+" km",
+    "day-entry done"
+   ));
+  });
   vak.onclick=()=>{
    gekozenDag=key;
-   getoondeMaand=new Date(d.getFullYear(),d.getMonth(),1);
+   getoondeMaand=new Date(
+    d.getFullYear(),d.getMonth(),1
+   );
    kalenderBijwerken();
    el("dagDetails").scrollIntoView({
     behavior:"smooth",block:"start"
@@ -955,61 +1268,92 @@ function kalenderBijwerken(){
   };
   g.append(vak);
  }
- const l=el("dagTrainingen");l.replaceChildren();
+
+ const lijst=el("dagTrainingen");
+ lijst.replaceChildren();
  el("gekozenDatum").textContent=
   gekozenDag?datumTekst(gekozenDag):"Selecteer een dag";
  if(gekozenDag){
-  const p=planning.filter(x=>x.datum===gekozenDag);
-  const t=trainingen.filter(x=>x.datum===gekozenDag);
-  if(!p.length&&!t.length)
-   l.append(node("p","Geen trainingen op deze dag."));
-  p.forEach(x=>l.append(planKaart(x)));
-  t.forEach(x=>l.append(ritKaart(x)));
+  const plannen=planning.filter(p=>p.datum===gekozenDag);
+  const ritten=trainingen.filter(t=>t.datum===gekozenDag);
+  if(!plannen.length&&!ritten.length){
+   lijst.append(node("p","Geen trainingen op deze dag."));
+  }
+  plannen.forEach(p=>lijst.append(planKaart(p)));
+  ritten.forEach(t=>lijst.append(ritKaart(t)));
  }
 }
 el("vorigeMaand").onclick=()=>{
  getoondeMaand=new Date(
-  getoondeMaand.getFullYear(),getoondeMaand.getMonth()-1,1
+  getoondeMaand.getFullYear(),
+  getoondeMaand.getMonth()-1,1
  );
- gekozenDag=null;kalenderBijwerken();
+ gekozenDag=null;
+ kalenderBijwerken();
 };
 el("volgendeMaand").onclick=()=>{
  getoondeMaand=new Date(
-  getoondeMaand.getFullYear(),getoondeMaand.getMonth()+1,1
+  getoondeMaand.getFullYear(),
+  getoondeMaand.getMonth()+1,1
  );
- gekozenDag=null;kalenderBijwerken();
+ gekozenDag=null;
+ kalenderBijwerken();
 };
 el("planOpDag").onclick=()=>{
  resetPlanning();
  el("planDatum").value=gekozenDag||datumKey(new Date());
  openPagina("trainingen");
+ el("planningSectie").scrollIntoView({
+  behavior:"smooth"
+ });
 };
 el("ritOpDag").onclick=()=>{
  resetTraining();
  el("datum").value=gekozenDag||datumKey(new Date());
  openPagina("trainingen");
+ el("trainingSectie").scrollIntoView({
+  behavior:"smooth"
+ });
 };
 
+// ================================
 // DASHBOARD EN GRAFIEKEN
+// ================================
 function dashboardBijwerken(){
  const km=totaalKm(trainingen);
- const min=trainingen.reduce((s,t)=>s+Number(t.minuten||0),0);
+ const min=trainingen.reduce(
+  (s,t)=>s+Number(t.minuten||0),0
+ );
  el("kilometers").textContent=kmTekst(km)+" km";
  el("uren").textContent=tijdTekst(min);
- el("snelheid").textContent=kmTekst(snelheid(km,min))+" km/u";
+ el("snelheid").textContent=
+  kmTekst(snelheid(km,min))+" km/u";
  el("aantal").textContent=trainingen.length;
  el("langsteRit").textContent=
-  kmTekst(Math.max(0,...trainingen.map(t=>Number(t.afstand)||0)))+" km";
+  kmTekst(Math.max(
+   0,...trainingen.map(t=>Number(t.afstand)||0)
+  ))+" km";
  el("snelsteRit").textContent=
-  kmTekst(Math.max(0,...trainingen.map(t=>
-   snelheid(Number(t.afstand)||0,Number(t.minuten)||0))))+" km/u";
+  kmTekst(Math.max(
+   0,...trainingen.map(t=>
+    snelheid(
+     Number(t.afstand)||0,
+     Number(t.minuten)||0
+    )
+   )
+  ))+" km/u";
  el("hoogsteHartslag").textContent=
-  Math.max(0,...trainingen.map(t=>Number(t.hartslag)||0))||"—";
+  Math.max(
+   0,...trainingen.map(t=>Number(t.hartslag)||0)
+  )||"—";
  el("hoogsteWatt").textContent=
-  Math.max(0,...trainingen.map(t=>Number(t.vermogen)||0))||"—";
+  Math.max(
+   0,...trainingen.map(t=>Number(t.vermogen)||0)
+  )||"—";
 }
 function tekenGrafiek(id,data){
- const c=el(id);c.replaceChildren();
+ const c=el(id);
+ c.replaceChildren();
  const max=Math.max(1,...data.map(x=>x.km));
  data.forEach(x=>{
   const col=node("div","","chart-col");
@@ -1022,7 +1366,8 @@ function tekenGrafiek(id,data){
  });
 }
 function grafiekenBijwerken(){
- const vandaag=new Date(),startWeek=maandag(vandaag);
+ const vandaag=new Date();
+ const startWeek=maandag(vandaag);
  const weken=[];
  for(let i=7;i>=0;i--){
   const start=new Date(startWeek);
@@ -1032,7 +1377,8 @@ function grafiekenBijwerken(){
   weken.push({
    label:start.getDate()+"/"+(start.getMonth()+1),
    km:totaalKm(trainingen.filter(t=>{
-    const d=alsDatum(t.datum);return d>=start&&d<einde;
+    const d=alsDatum(t.datum);
+    return d>=start&&d<einde;
    }))
   });
  }
@@ -1057,34 +1403,51 @@ function grafiekenBijwerken(){
  tekenGrafiek("maandGrafiek",maanden);
 }
 
-// =======================================
-// COACH - CHAT
-// =======================================
+// ================================
+// COACH: CHATGESCHIEDENIS
+// ================================
 const welkomstbericht=
- "Hoi! 🚴 Ik ben je Cycling Coach.\n\n"+
- "Nieuw: ik kan een trainingsschema voor "+
- "één of twee weken maken!\n\n"+
- "Probeer:\n"+
- "Maak een trainingsschema voor 2 weken.\n\n"+
- "Ik vraag vervolgens welke dagen je kunt "+
- "fietsen, hoeveel tijd je hebt en wat je doel is.";
+ "Hoi! 🚴 Ik ben je Cycling Coach 2.0.\n\n"+
+ "Ik kan nu:\n"+
+ "• Je bestaande kalender bekijken.\n"+
+ "• Dubbele trainingen voorkomen.\n"+
+ "• Rekening houden met je recente ritten.\n"+
+ "• Zware trainingen beter verdelen.\n"+
+ "• Een schema voor 1 of 2 weken voorstellen.\n\n"+
+ "Probeer: Maak een trainingsschema voor 2 weken.";
 
+function leegCoachContext(){
+ return {
+  modus:null,weken:null,
+  doel:null,gevoel:null,locatie:null,
+  datum:null,minuten:null,
+  dagen:[],dagMinuten:{},wachtOp:null
+ };
+}
 function berichtToevoegen(rol,tekst){
- const nieuw=[...coachGeschiedenis,{rol,tekst}].slice(-100);
+ const nieuw=[
+  ...coachGeschiedenis,{rol,tekst}
+ ].slice(-100);
  coachGeschiedenis=nieuw;
  bewaren(chatKey,nieuw);
  chatWeergeven();
 }
 function chatWeergeven(){
- const chat=el("coachChat");chat.replaceChildren();
+ const chat=el("coachChat");
+ chat.replaceChildren();
  const berichten=coachGeschiedenis.length
-  ?coachGeschiedenis:[{rol:"coach",tekst:welkomstbericht}];
+  ?coachGeschiedenis
+  :[{rol:"coach",tekst:welkomstbericht}];
  berichten.forEach(b=>{
-  const vak=node("div","","chat-message "+
-   (b.rol==="user"?"user":"coach"));
+  const vak=node(
+   "div","",
+   "chat-message "+(b.rol==="user"?"user":"coach")
+  );
   vak.append(
-   node("div",b.rol==="user"?"Jij":"🚴 Cycling Coach",
-    "chat-speaker"),
+   node("div",
+    b.rol==="user"?"Jij":"🚴 Cycling Coach",
+    "chat-speaker"
+   ),
    node("div",b.tekst)
   );
   chat.append(vak);
@@ -1101,11 +1464,16 @@ el("wisCoachChat").onclick=()=>{
  chatWeergeven();
 };
 
+// ================================
+// COACH: NEDERLANDSE TAAL HERKENNEN
+// ================================
 function normaal(t){
- return t.toLowerCase().normalize("NFD")
+ return t.toLowerCase()
+  .normalize("NFD")
   .replace(/[\u0300-\u036f]/g,"")
   .replace(/[.,!?;:]/g," ")
-  .replace(/\s+/g," ").trim();
+  .replace(/\s+/g," ")
+  .trim();
 }
 function bevat(t,woorden){
  return woorden.some(w=>t.includes(w));
@@ -1114,13 +1482,12 @@ const weekdagen=[
  "zondag","maandag","dinsdag","woensdag",
  "donderdag","vrijdag","zaterdag"
 ];
-const dagKort=[
- "zo","ma","di","wo","do","vr","za"
-];
+const dagKort=["zo","ma","di","wo","do","vr","za"];
+
 function herkenDagen(t){
  const gevonden=[];
  weekdagen.forEach((naam,i)=>{
-  if(t.includes(naam)||
+  if(new RegExp("\\b"+naam+"\\b").test(t)||
    new RegExp("\\b"+dagKort[i]+"\\b").test(t)){
    gevonden.push(i);
   }
@@ -1130,489 +1497,870 @@ function herkenDagen(t){
 function herkenTijd(t){
  if(t.includes("anderhalf uur"))return 90;
  if(t.includes("half uur"))return 30;
- const woorden={een:1,twee:2,drie:3,vier:4,vijf:5,zes:6};
- let m=t.match(/\b(\d+(?:[.,]\d+)?)\s*(uur|uren)\b/);
- if(m)return Math.round(Number(m[1].replace(",","."))*60);
- m=t.match(/\b(\d+)\s*(minuten|minuut|min)\b/);
+
+ const woorden={
+  een:1,twee:2,drie:3,vier:4,vijf:5,zes:6
+ };
+
+ let m=t.match(
+  /\b(\d+(?:[.,]\d+)?)\s*(uur|uren)\b/
+ );
+ if(m){
+  return Math.round(
+   Number(m[1].replace(",","."))*60
+  );
+ }
+
+ m=t.match(
+  /\b(\d+)\s*(minuten|minuut|min)\b/
+ );
  if(m)return Number(m[1]);
- m=t.match(/\b(een|twee|drie|vier|vijf|zes)\s+uur\b/);
+
+ m=t.match(
+  /\b(een|twee|drie|vier|vijf|zes)\s+uur\b/
+ );
  if(m)return woorden[m[1]]*60;
+
  return null;
 }
 function herkenDatum(t){
- const d=new Date();d.setHours(12,0,0,0);
- if(t.includes("overmorgen"))d.setDate(d.getDate()+2);
- else if(t.includes("morgen"))d.setDate(d.getDate()+1);
- else if(t.includes("vandaag")){}
- else{
-  const m=t.match(/\b(20\d{2})-(\d{2})-(\d{2})\b/);
-  if(m){
-   const s=m[0],x=alsDatum(s);
-   if(datumKey(x)===s)return s;
-  }
-  const dagen=herkenDagen(t);
-  if(!dagen.length)return null;
-  let verschil=(dagen[0]-d.getDay()+7)%7;
-  if(verschil===0||t.includes("volgende"))verschil+=7;
-  d.setDate(d.getDate()+verschil);
+ const d=new Date();
+ d.setHours(12,0,0,0);
+
+ if(t.includes("overmorgen")){
+  d.setDate(d.getDate()+2);
+  return datumKey(d);
  }
+ if(t.includes("morgen")){
+  d.setDate(d.getDate()+1);
+  return datumKey(d);
+ }
+ if(t.includes("vandaag")){
+  return datumKey(d);
+ }
+
+ const m=t.match(/\b(20\d{2})-(\d{2})-(\d{2})\b/);
+ if(m){
+  const datum=alsDatum(m[0]);
+  if(datumKey(datum)===m[0])return m[0];
+ }
+
+ const dagen=herkenDagen(t);
+ if(!dagen.length)return null;
+
+ let verschil=(dagen[0]-d.getDay()+7)%7;
+ if(verschil===0||t.includes("volgende")){
+  verschil+=7;
+ }
+ d.setDate(d.getDate()+verschil);
  return datumKey(d);
 }
 function herkenDoel(t){
- if(bevat(t,["herstel","herstellen","rustig aan"]))
-  return "herstel";
- if(bevat(t,["sneller","snelheid","interval","tempo"]))
-  return "snelheid";
- if(bevat(t,["lange afstand","langere afstand",
-  "100 km","100 kilometer","duurvermogen"]))
-  return "duur";
- if(bevat(t,["conditie","uithoudingsvermogen",
-  "fitheid","fit worden","duurtraining"]))
-  return "conditie";
+ if(bevat(t,[
+  "herstel","herstellen","rustig aan"
+ ]))return "herstel";
+
+ if(bevat(t,[
+  "sneller","snelheid","interval","tempo"
+ ]))return "snelheid";
+
+ if(bevat(t,[
+  "lange afstand","langere afstand",
+  "100 km","100 kilometer","duurvermogen"
+ ]))return "duur";
+
+ if(bevat(t,[
+  "conditie","uithoudingsvermogen","fitheid",
+  "fit worden","duurtraining"
+ ]))return "conditie";
+
  return null;
 }
 function herkenGevoel(t){
- if(bevat(t,["pijn","blessure","geblesseerd",
-  "last van mijn","last van m n"]))
-  return "pijn";
- if(bevat(t,["moe","vermoeid","zware benen","uitgeput"]))
-  return "moe";
- if(bevat(t,["fit","uitgerust","voel me goed",
-  "prima","fris"]))return "goed";
- if(bevat(t,["normaal","gaat wel","redelijk"]))
-  return "normaal";
+ if(bevat(t,[
+  "pijn","blessure","geblesseerd",
+  "last van mijn","last van m n"
+ ]))return "pijn";
+
+ if(bevat(t,[
+  "moe","vermoeid","zware benen","uitgeput"
+ ]))return "moe";
+
+ if(bevat(t,[
+  "fit","uitgerust","voel me goed",
+  "prima","fris"
+ ]))return "goed";
+
+ if(bevat(t,[
+  "normaal","gaat wel","redelijk"
+ ]))return "normaal";
+
  return null;
 }
 function herkenLocatie(t){
- if(bevat(t,["zwift","indoor","tacx","binnen"]))
-  return "zwift";
- if(bevat(t,["buiten","racefiets","op de weg"]))
-  return "buiten";
+ if(bevat(t,[
+  "zwift","indoor","tacx","binnen"
+ ]))return "zwift";
+ if(bevat(t,[
+  "buiten","racefiets","op de weg"
+ ]))return "buiten";
  return null;
 }
+function leesDagDuren(t){
+ const resultaat={};
+ const patroon=
+  /\b(maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag)\b(.*?)(?=\b(?:maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag)\b|$)/g;
+
+ for(const m of t.matchAll(patroon)){
+  const dag=weekdagen.indexOf(m[1]);
+  const tijd=herkenTijd(m[2]);
+  if(tijd!==null&&tijd>0){
+   resultaat[dag]=tijd;
+  }
+ }
+ return resultaat;
+}
+
+// ================================
+// COACH: ANALYSE
+// ================================
 function analyseWeek(datum){
  const eind=alsDatum(datum);
- const begin=new Date(eind);begin.setDate(begin.getDate()-7);
+ const begin=new Date(eind);
+ begin.setDate(begin.getDate()-7);
+
  const ritten=trainingen.filter(t=>{
   const d=alsDatum(t.datum);
   return d>=begin&&d<eind;
  });
  const km=totaalKm(ritten);
  const minuten=ritten.reduce(
-  (s,t)=>s+Number(t.minuten||0),0);
- const zware=ritten.filter(t=>
-  ["Intervaltraining","Tempotraining"].includes(t.type)
- ).length;
- const gisteren=new Date(eind);
- gisteren.setDate(gisteren.getDate()-1);
+  (s,t)=>s+Number(t.minuten||0),0
+ );
+ const zware=ritten.filter(t=>isZwaar(t)).length;
+ const gisteren=datumPlus(datum,-1);
  const gisterenMin=ritten
-  .filter(t=>t.datum===datumKey(gisteren))
+  .filter(t=>t.datum===gisteren)
   .reduce((s,t)=>s+Number(t.minuten||0),0);
+
  return {ritten,km,minuten,zware,gisterenMin};
 }
 function updateCoachAnalyse(){
  const a=analyseWeek(datumKey(new Date()));
- el("coachAnalyse").textContent=
-  "Afgelopen zeven dagen (exclusief vandaag): "+
-  a.ritten.length+" ritten, "+kmTekst(a.km)+
-  " km en "+tijdTekst(a.minuten)+
-  " uur. Intensiteit en herstel zijn niet "+
-  "volledig af te leiden uit deze gegevens.";
+ el("coachWeekKm").textContent=kmTekst(a.km)+" km";
+ el("coachWeekTijd").textContent=tijdTekst(a.minuten);
+ el("coachWeekAantal").textContent=a.ritten.length;
+
+ let uitleg=
+  "De coach gebruikt deze gegevens om je "+
+  "trainingsomvang in te schatten. ";
+
+ if(!a.ritten.length){
+  uitleg+="Er zijn geen recente ritten geregistreerd. "+
+   "Daarom wordt voorzichtig opgebouwd.";
+ }else if(a.minuten>=480){
+  uitleg+="Je hebt minstens acht uur fietstijd "+
+   "geregistreerd. Daarom adviseert de coach "+
+   "terughoudender.";
+ }else{
+  uitleg+="Ook controleert hij je planning "+
+   "en probeert hij rustmomenten te bewaren.";
+ }
+
+ el("coachAnalyse").textContent=uitleg;
 }
 function beschrijfWeek(){
  const a=analyseWeek(datumKey(new Date()));
- return a.ritten.length
-  ?"In de afgelopen zeven dagen:\n"+
-   "🚴 "+a.ritten.length+" ritten\n"+
-   "📍 "+kmTekst(a.km)+" km\n"+
-   "⏱️ "+tijdTekst(a.minuten)+" uur\n"+
-   "⚡ "+kmTekst(snelheid(a.km,a.minuten))+
-   " km/u gemiddeld."
-  :"Ik zie geen geregistreerde ritten in de "+
-   "afgelopen zeven dagen. Vul je gereden "+
-   "ritten in zodat ik meer informatie heb.";
-}
 
-// =======================================
-// COACH - SCHEMA VAN 1 OF 2 WEKEN
-// =======================================
-function eerstvolgendeDag(vanaf,weekdag){
- const d=new Date(vanaf);
- const verschil=(weekdag-d.getDay()+7)%7;
- d.setDate(d.getDate()+verschil);
- return d;
-}
-
-// Herken ook: "dinsdag 60 minuten en zondag 2 uur".
-function leesDagDuren(tekst){
- const resultaat={};
- const patroon=/\b(maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag)\b([^]*?)(?=\b(?:maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag)\b|$)/g;
- for(const m of tekst.matchAll(patroon)){
-  const dag=weekdagen.indexOf(m[1]);
-  const tijd=herkenTijd(m[2]);
-  if(tijd!==null&&tijd>0)resultaat[dag]=tijd;
+ if(!a.ritten.length){
+  return "Ik zie geen uitgevoerde ritten "+
+   "in de afgelopen zeven dagen. "+
+   "Vul je ritten in zodat ik meer informatie heb.";
  }
- return resultaat;
+
+ return "Afgelopen zeven dagen:\n"+
+  "🚴 "+a.ritten.length+" ritten\n"+
+  "📍 "+kmTekst(a.km)+" km\n"+
+  "⏱️ "+tijdTekst(a.minuten)+" uur\n"+
+  "⚡ "+kmTekst(snelheid(a.km,a.minuten))+
+  " km/u gemiddeld\n\n"+
+  "Dit laat je trainingsomvang zien, maar "+
+  "niet precies hoe zwaar iedere rit voelde.";
 }
-function vraagMeer(tekst){
- coachContext.wachtOp=tekst;
- berichtToevoegen("coach",tekst);
+function beschrijfPlanning(){
+ const vandaag=datumKey(new Date());
+ const einde=datumPlus(vandaag,7);
+ const lijst=planning
+  .filter(p=>p.datum>=vandaag&&p.datum<einde)
+  .sort((a,b)=>a.datum.localeCompare(b.datum));
+
+ if(!lijst.length){
+  return "Er staan geen geplande trainingen "+
+   "in de kalender voor de komende zeven dagen.";
+ }
+
+ return "Dit staat in je kalender:\n\n"+
+  lijst.map(p=>
+   "📅 "+datumTekst(p.datum)+"\n"+
+   p.type+" • "+
+   tijdTekst(Number(p.minuten)||0)+" uur"
+  ).join("\n\n");
 }
+
+// ================================
+// COACH: KALENDERCONTROLE
+// ================================
+function bestaandeActiviteiten(datum){
+ return {
+  gepland:planning.filter(p=>p.datum===datum),
+  gereden:trainingen.filter(t=>t.datum===datum)
+ };
+}
+function dagBezet(datum){
+ const a=bestaandeActiviteiten(datum);
+ return a.gepland.length>0||a.gereden.length>0;
+}
+function zwareDag(datum,voorstellen=[]){
+ return [
+  ...planning.filter(p=>p.datum===datum),
+  ...trainingen.filter(t=>t.datum===datum),
+  ...voorstellen.filter(p=>p.datum===datum)
+ ].some(t=>isZwaar(t));
+}
+function zwareDagErnaast(datum,voorstellen=[]){
+ return zwareDag(datumPlus(datum,-1),voorstellen)||
+  zwareDag(datumPlus(datum,1),voorstellen);
+}
+function tijdLaatsteWeek(datum,voorstellen=[]){
+ const start=datumPlus(datum,-7);
+
+ const ritten=trainingen.filter(t=>
+  t.datum>=start&&t.datum<datum
+ );
+ const plannen=planning.filter(t=>
+  t.datum>=start&&t.datum<datum
+ );
+ const voorstellenWeek=voorstellen.filter(t=>
+  t.datum>=start&&t.datum<datum
+ );
+
+ return [...ritten,...plannen,...voorstellenWeek]
+  .reduce((s,t)=>s+Number(t.minuten||0),0);
+}
+
+// ================================
+// COACH: TRAININGSADVIES
+// ================================
+function nieuweCoachTraining(
+ datum,type,minuten,intensiteit,notitie,locatie
+){
+ const indoor=locatie==="zwift";
+ return {
+  id:idMaken(),
+  datum,
+  type:indoor?"Indoor / Zwift":type,
+  minuten,
+  intensiteit,
+  notitie:"Coachadvies: "+type+" — "+notitie,
+  zwiftNaam:indoor?type:null,
+  zwiftSoort:indoor?"Workout":null,
+  coachSoort:type
+ };
+}
+function coachType(
+ datum,doel,gevoel,minuten,voorstellen=[]
+){
+ const analyse=analyseWeek(datum);
+ if(gevoel==="moe"||doel==="herstel"){
+  return "Hersteltraining";
+ }
+ if(analyse.gisterenMin>=120){
+  return "Hersteltraining";
+ }
+ if(doel==="snelheid"&&
+  gevoel==="goed"&&
+  minuten>=45&&
+  analyse.ritten.length>0&&
+  analyse.zware<2&&
+  !zwareDagErnaast(datum,voorstellen)){
+  return "Intervaltraining";
+ }
+ if(doel==="snelheid"&&
+  analyse.ritten.length>0&&
+  !zwareDagErnaast(datum,voorstellen)&&
+  minuten>=45){
+  return "Tempotraining";
+ }
+ return "Duurtraining";
+}
+function trainAdvies(
+ datum,doel,gevoel,minuten,locatie,voorstellen=[]
+){
+ let type=coachType(
+  datum,doel,gevoel,minuten,voorstellen
+ );
+ let duur=minuten;
+ let intensiteit="Rustig";
+ let notitie="Rustig en gelijkmatig fietsen.";
+
+ const recenteTijd=tijdLaatsteWeek(
+  datum,voorstellen
+ );
+
+ if(type==="Hersteltraining"){
+  duur=Math.min(duur,40);
+  notitie="Zeer rustig trappen. Een rustdag mag ook.";
+ }
+ if(type==="Intervaltraining"){
+  duur=Math.min(duur,75);
+  intensiteit="Intensief";
+  notitie=
+   "15 minuten inrijden, 4 × 3 minuten stevig "+
+   "met 3 minuten rustig, daarna uitrijden.";
+ }
+ if(type==="Tempotraining"){
+  duur=Math.min(duur,75);
+  intensiteit="Gemiddeld";
+  notitie=
+   "15 minuten inrijden, 2 × 10 minuten "+
+   "vlot tempo met herstel, daarna uitrijden.";
+ }
+
+ if(recenteTijd>=480&&type!=="Hersteltraining"){
+  type="Hersteltraining";
+  duur=Math.min(duur,40);
+  intensiteit="Rustig";
+  notitie="Voorzichtige keuze vanwege "+
+   "de geregistreerde trainingsomvang.";
+ }
+
+ const analyse=analyseWeek(datum);
+ if(!analyse.ritten.length){
+  if(type==="Intervaltraining"||
+   type==="Tempotraining"){
+   type="Duurtraining";
+   intensiteit="Rustig";
+   notitie="Rustige basisrit.";
+  }
+  duur=Math.min(duur,90);
+ }
+
+ return nieuweCoachTraining(
+  datum,type,duur,intensiteit,notitie,locatie
+ );
+}
+
+// ================================
+// COACH: SCHEMA VOOR 1 OF 2 WEKEN
+// ================================
 function startSchema(weken){
  coachContext=leegCoachContext();
  coachContext.modus="schema";
  coachContext.weken=weken;
  coachVoorstelData=null;
  el("coachVoorstel").classList.add("hidden");
- vraagMeer(
-  "Leuk! 🚴 Ik maak een schema voor "+weken+
+
+ berichtToevoegen(
+  "coach",
+  "Ik maak een schema voor "+weken+
   (weken===1?" week.":" weken.")+
   "\n\nOp welke dagen kun je fietsen? "+
-  "Bijvoorbeeld: dinsdag, donderdag en zondag."
+  "Bijvoorbeeld dinsdag, donderdag en zondag."
  );
-}
-function planTypeVoorIndex(i,aantal,doel,gevoel,belasting){
- if(gevoel==="moe"||doel==="herstel")
-  return "Hersteltraining";
- if(belasting.zware>=2)return "Duurtraining";
- if(doel==="snelheid"&&i%3===1&&
-  gevoel==="goed"&&belasting.ritten.length>0)
-  return "Intervaltraining";
- if(doel==="snelheid"&&i%3===2&&
-  gevoel==="goed"&&belasting.ritten.length>0)
-  return "Tempotraining";
- return "Duurtraining";
 }
 function bouwWeekschema(){
  const c=coachContext;
- const vandaag=new Date();
- vandaag.setHours(12,0,0,0);
+ const start=maandag(new Date());
 
- // Start de komende week: eerstvolgende maandag.
- const start=maandag(vandaag);
+ // Eerstvolgende volledige maandag-tot-zondagweek.
  start.setDate(start.getDate()+7);
+ start.setHours(12,0,0,0);
 
- const eind=new Date(start);
- eind.setDate(eind.getDate()+c.weken*7);
+ const voorstellen=[];
+ const meldingen=[];
 
- const belast=analyseWeek(datumKey(start));
- let voorstellen=[];
+ const dagen=[...c.dagen].sort(
+  (a,b)=>((a+6)%7)-((b+6)%7)
+ );
 
  for(let week=0;week<c.weken;week++){
-  const dagNummers=[...c.dagen].sort((a,b)=>
-   ((a+6)%7)-((b+6)%7)
-  );
-  dagNummers.forEach((dag,i)=>{
-   const datum=eerstvolgendeDag(
-    new Date(start.getFullYear(),start.getMonth(),
-     start.getDate()+week*7,12),dag
+  for(const dag of dagen){
+   const d=new Date(start);
+   d.setDate(
+    d.getDate()+week*7+((dag+6)%7)
    );
-   const sleutel=datumKey(datum);
-   const beschikbaar=c.dagMinuten[dag]||60;
-   const type=planTypeVoorIndex(
-    i,dagNummers.length,c.doel,c.gevoel,belast
-   );
+   const datum=datumKey(d);
 
-   let min=beschikbaar;
-   let notitie="";
-   if(type==="Hersteltraining"){
-    min=Math.min(min,40);
-    notitie="Heel rustig fietsen; rustdag mag ook";
-   }else if(type==="Intervaltraining"){
-    min=Math.min(min,75);
-    notitie="15 min inrijden, 4 × 3 min stevig "+
-     "met 3 min rustig, daarna uitrijden";
-   }else if(type==="Tempotraining"){
-    min=Math.min(min,75);
-    notitie="15 min inrijden, 2 × 10 min "+
-     "vlot tempo met herstel, daarna uitrijden";
-   }else{
-    notitie="Rustig, gelijkmatig fietsen";
+   if(dagBezet(datum)){
+    meldingen.push(
+     datumTekst(datum)+
+     ": overgeslagen, er staat al een training."
+    );
+    continue;
    }
 
-   if(week===1&&type==="Duurtraining"){
-    // Bij twee weken een kleine opbouw, nooit langer
-    // dan de opgegeven beschikbare tijd.
-    min=Math.min(beschikbaar,
-     Math.round(Math.min(min*1.1,min+10)));
+   const duur=c.dagMinuten[dag]||60;
+
+   const voorstel=trainAdvies(
+    datum,c.doel,c.gevoel,
+    duur,c.locatie,voorstellen
+   );
+
+   if(isZwaar(voorstel)&&
+    zwareDagErnaast(datum,voorstellen)){
+    voorstel.type=c.locatie==="zwift"
+     ?"Indoor / Zwift":"Duurtraining";
+    voorstel.coachSoort="Duurtraining";
+    voorstel.intensiteit="Rustig";
+    voorstel.zwiftNaam=c.locatie==="zwift"
+     ?"Duurtraining":null;
+    voorstel.notitie=
+     "Coachadvies: rustige duurtraining "+
+     "vanwege een nabije intensieve training.";
    }
 
-   // Voorzichtig bij zeer lange duur en weinig gegevens.
-   if(belast.ritten.length===0)min=Math.min(min,90);
-
-   const indoor=c.locatie==="zwift";
-   voorstellen.push({
-    id:idMaken(),
-    datum:sleutel,
-    type:indoor?"Indoor / Zwift":type,
-    minuten:min,
-    intensiteit:type==="Intervaltraining"||
-     type==="Tempotraining"?"Intensief":"Rustig",
-    notitie:"Coachschema: "+type+" — "+notitie,
-    zwiftNaam:indoor?type:null,
-    zwiftSoort:indoor?"Workout":null
-   });
-  });
+   voorstellen.push(voorstel);
+  }
  }
 
- voorstellen.sort((a,b)=>a.datum.localeCompare(b.datum));
- coachVoorstelData=voorstellen;
- berichtToevoegen("coach",
-  "Ik heb een schema voor "+c.weken+
-  (c.weken===1?" week":" weken")+
-  " gemaakt met "+voorstellen.length+
-  " trainingen.\n\n"+
-  "Ik heb rekening gehouden met je beschikbare "+
-  "dagen, tijd, doel en geregistreerde ritten. "+
-  "Bekijk het voorstel hieronder. "+
-  "Het staat nog NIET in je kalender."
+ voorstellen.sort(
+  (a,b)=>a.datum.localeCompare(b.datum)
  );
+
+ coachVoorstelData={
+  trainingen:voorstellen,
+  meldingen
+ };
+
+ let antwoord=
+  "Ik heb je bestaande kalender bekeken.\n\n"+
+  "✅ "+voorstellen.length+
+  " nieuwe trainingen voorgesteld.\n"+
+  "📅 "+meldingen.length+
+  " bezette dagen overgeslagen.\n\n";
+
+ if(meldingen.length){
+  antwoord+="Overgeslagen dagen:\n"+
+   meldingen.map(x=>"• "+x).join("\n")+
+   "\n\n";
+ }
+
+ antwoord+=
+  "Ik heb geprobeerd intensieve trainingen "+
+  "te scheiden en recente ritten mee te wegen. "+
+  "Controleer het schema hieronder voordat "+
+  "je het opslaat.";
+
+ berichtToevoegen("coach",antwoord);
  toonCoachVoorstel();
  coachContext=leegCoachContext();
 }
 
+// ================================
+// COACH: LOSSE TRAINING
+// ================================
+function bouwLosseTraining(){
+ const c=coachContext;
+
+ if(c.gevoel==="pijn"){
+  berichtToevoegen(
+   "coach",
+   "Omdat je pijn of blessureklachten meldt, "+
+   "stel ik geen training voor. Forceer niets "+
+   "en laat aanhoudende klachten beoordelen."
+  );
+  coachContext=leegCoachContext();
+  return;
+ }
+
+ if(dagBezet(c.datum)){
+  const a=bestaandeActiviteiten(c.datum);
+  berichtToevoegen(
+   "coach",
+   "Op "+datumTekst(c.datum)+" staat al "+
+   (a.gepland.length+a.gereden.length)+
+   " training(en) in je kalender.\n\n"+
+   "Daarom maak ik geen tweede training aan. "+
+   "Kies een andere datum of pas je bestaande "+
+   "planning aan."
+  );
+  coachContext=leegCoachContext();
+  return;
+ }
+
+ const voorstel=trainAdvies(
+  c.datum,c.doel,c.gevoel,
+  c.minuten,c.locatie
+ );
+
+ coachVoorstelData={
+  trainingen:[voorstel],
+  meldingen:[]
+ };
+
+ berichtToevoegen(
+  "coach",
+  "Mijn voorstel voor "+datumTekst(c.datum)+
+  ":\n\n🚴 "+voorstel.coachSoort+
+  "\n⏱️ "+tijdTekst(voorstel.minuten)+" uur"+
+  "\n🎯 "+voorstel.intensiteit+
+  "\n\n"+voorstel.notitie+
+  "\n\nIk heb gecontroleerd of deze dag "+
+  "al een training bevat."
+ );
+
+ toonCoachVoorstel();
+ coachContext=leegCoachContext();
+}
+
+// ================================
+// COACH: SCHEMA BEKIJKEN EN OPSLAAN
+// ================================
 function toonCoachVoorstel(){
  const vak=el("coachVoorstel");
  vak.replaceChildren();
 
- if(!coachVoorstelData||
-  !coachVoorstelData.length){
-  vak.classList.add("hidden");return;
+ if(!coachVoorstelData){
+  vak.classList.add("hidden");
+  return;
  }
 
+ const items=coachVoorstelData.trainingen;
  vak.classList.remove("hidden");
- const voorstellen=[...coachVoorstelData];
- vak.append(node("h3",
-  "📅 Voorgesteld trainingsschema"));
+ vak.append(node("h3","📅 Mijn trainingsvoorstel"));
 
- voorstellen.forEach(p=>{
+ if(coachVoorstelData.meldingen.length){
+  vak.append(node(
+   "div",
+   coachVoorstelData.meldingen.join("\n"),
+   "warning"
+  ));
+ }
+
+ if(!items.length){
+  vak.append(node(
+   "p",
+   "Er zijn geen nieuwe trainingen om in te plannen. "+
+   "Je bestaande afspraken blijven behouden."
+  ));
+ }
+
+ items.forEach(p=>{
   const item=node("div","","schema-item");
   item.append(
    node("strong",datumTekst(p.datum)),
-   node("p",p.type+(p.zwiftNaam
-    ?" — "+p.zwiftNaam:"")),
-   node("p","⏱️ "+tijdTekst(p.minuten)+
-    " uur • "+p.intensiteit),
+   node(
+    "p",
+    "🚴 "+(p.coachSoort||p.type)+
+    (p.type==="Indoor / Zwift"?" op Zwift":"")
+   ),
+   node(
+    "p",
+    "⏱️ "+tijdTekst(p.minuten)+
+    " uur • "+p.intensiteit
+   ),
    node("p",p.notitie)
   );
-  const bestaand=planning.filter(x=>x.datum===p.datum);
-  if(bestaand.length)
-   item.append(node("p",
-    "⚠️ Je hebt al "+bestaand.length+
-    " training(en) gepland op deze datum."));
+
+  item.append(knop(
+   "Verwijder uit voorstel",
+   ()=>{
+    coachVoorstelData.trainingen=
+     coachVoorstelData.trainingen.filter(
+      x=>x.id!==p.id
+     );
+    toonCoachVoorstel();
+   },
+   "btn secondary"
+  ));
   vak.append(item);
  });
 
- vak.append(node("p",
-  "Controleer dit voorstel. De coach weet niet "+
-  "precies hoe zwaar je eerdere ritten waren.",
-  "muted"));
+ vak.append(node(
+  "p",
+  "Controleer het voorstel zelf. De coach kent "+
+  "niet je volledige hersteltoestand of "+
+  "de ervaren inspanning van iedere rit.",
+  "muted"
+ ));
 
  const acties=node("div","","actions");
- acties.append(
-  knop("✅ Hele schema inplannen",()=>{
-   if(!coachVoorstelData)return;
-   const klaar=[...coachVoorstelData];
-   if(!confirm("Alle "+klaar.length+
-    " trainingen toevoegen aan je kalender? "+
-    "Bestaande trainingen blijven staan."))return;
-   const nieuw=[...planning,...klaar];
-   if(!bewaren(planningKey,nieuw))return;
-   planning=nieuw;
+
+ if(items.length){
+  acties.append(knop(
+   "✅ Schema in kalender zetten",
+   ()=>{
+    if(!coachVoorstelData)return;
+
+    const voorstellen=[
+     ...coachVoorstelData.trainingen
+    ];
+
+    // Opnieuw controleren op dubbele afspraken.
+    const vrij=voorstellen.filter(
+     p=>!dagBezet(p.datum)
+    );
+
+    const overgeslagen=
+     voorstellen.length-vrij.length;
+
+    if(!vrij.length){
+     alert(
+      "Geen vrije dagen meer. "+
+      "Je kalender is intussen gewijzigd."
+     );
+     return;
+    }
+
+    let vraag=
+     vrij.length+" training(en) inplannen?";
+
+    if(overgeslagen){
+     vraag+="\n"+overgeslagen+
+      " training(en) worden overgeslagen "+
+      "om dubbele afspraken te voorkomen.";
+    }
+
+    if(!confirm(vraag))return;
+
+    // HIER IS DE EERDERE FOUT HERSTELD.
+    const nieuweTrainingen=vrij.map(p=>{
+     const kopie={...p};
+     delete kopie.coachSoort;
+     return kopie;
+    });
+
+    const nieuw=[
+     ...planning,
+     ...nieuweTrainingen
+    ];
+
+    if(bewaren(planningKey,nieuw)){
+     planning=nieuw;
+     coachVoorstelData=null;
+     vak.classList.add("hidden");
+     allesBijwerken();
+
+     berichtToevoegen(
+      "coach",
+      "Gelukt! ✅ Ik heb "+vrij.length+
+      " trainingen aan je kalender toegevoegd."
+     );
+
+     const d=alsDatum(vrij[0].datum);
+     getoondeMaand=new Date(
+      d.getFullYear(),d.getMonth(),1
+     );
+     gekozenDag=vrij[0].datum;
+     kalenderBijwerken();
+     openPagina("kalender");
+    }
+   }
+  ));
+ }
+
+ acties.append(knop(
+  "Voorstel weggooien",
+  ()=>{
    coachVoorstelData=null;
    vak.classList.add("hidden");
-   allesBijwerken();
-   berichtToevoegen("coach",
-    "Gelukt! ✅ Ik heb "+klaar.length+
-    " trainingen aan je kalender toegevoegd.");
-   const d=alsDatum(klaar[0].datum);
-   getoondeMaand=new Date(
-    d.getFullYear(),d.getMonth(),1
-   );
-   gekozenDag=klaar[0].datum;
-   kalenderBijwerken();
-   openPagina("kalender");
-  }),
-  knop("Voorstel weggooien",()=>{
-   coachVoorstelData=null;
-   vak.classList.add("hidden");
-   berichtToevoegen("coach",
+   berichtToevoegen(
+    "coach",
     "Prima. Het voorstel is niet opgeslagen. "+
-    "Je kunt een nieuw schema aanvragen.");
-  },"btn secondary")
- );
+    "Je kunt een nieuw schema aanvragen."
+   );
+  },
+  "btn secondary"
+ ));
+
  vak.append(acties);
 }
 
-// LOSSE TRAINING
-function bouwLosseTraining(){
- const c=coachContext;
- const belasting=analyseWeek(c.datum);
- let type="Duurtraining",min=c.minuten;
- let intensiteit="Rustig";
- let notitie="Rustig, gelijkmatig fietsen";
-
- if(c.gevoel==="pijn"){
-  berichtToevoegen("coach",
-   "Omdat je pijn of blessureklachten meldt, "+
-   "stel ik geen training voor. Neem rust "+
-   "en laat aanhoudende klachten beoordelen.");
-  coachContext=leegCoachContext();
-  return;
- }
- if(c.gevoel==="moe"||c.doel==="herstel"||
-  belasting.gisterenMin>=120){
-  type="Hersteltraining";
-  min=Math.min(min,40);
-  notitie="Zeer rustig; rustdag is ook mogelijk";
- }else if(c.doel==="snelheid"&&c.gevoel==="goed"&&
-  belasting.ritten.length>0&&belasting.zware<2&&
-  min>=45){
-  type="Intervaltraining";
-  min=Math.min(min,75);
-  intensiteit="Intensief";
-  notitie="15 min inrijden, 4 × 3 min stevig "+
-   "met 3 min rustig, daarna uitrijden";
- }else if(belasting.ritten.length===0){
-  min=Math.min(min,90);
- }
-
- const indoor=c.locatie==="zwift";
- coachVoorstelData=[{
-  id:idMaken(),
-  datum:c.datum,
-  type:indoor?"Indoor / Zwift":type,
-  minuten:min,intensiteit,
-  notitie:"Coachadvies: "+notitie,
-  zwiftNaam:indoor?type:null,
-  zwiftSoort:indoor?"Workout":null
- }];
- berichtToevoegen("coach",
-  "Mijn voorstel voor "+datumTekst(c.datum)+
-  ":\n🚴 "+type+(indoor?" op Zwift":"")+
-  "\n⏱️ "+tijdTekst(min)+" uur\n"+
-  "🎯 "+intensiteit+"\n\n"+notitie+
-  "\n\nJe kunt dit hieronder inplannen.");
- toonCoachVoorstel();
- coachContext=leegCoachContext();
-}
-
-// GESPREKSVERWERKING
+// ================================
+// COACH: GESPREK
+// ================================
 function coachAntwoord(invoer){
  const t=normaal(invoer);
  if(!t)return;
 
- if(bevat(t,["afgelopen week getraind",
-  "hoe heb ik","hoeveel heb ik gefietst",
-  "mijn trainingsweek"])){
+ if(bevat(t,[
+  "afgelopen week getraind",
+  "hoe heb ik",
+  "hoeveel heb ik gefietst",
+  "mijn trainingsweek"
+ ])){
   berichtToevoegen("coach",beschrijfWeek());
   return;
  }
- if(bevat(t,["opnieuw beginnen","nieuw gesprek",
-  "reset coach"])){
-  coachContext=leegCoachContext();
-  coachVoorstelData=null;
-  el("coachVoorstel").classList.add("hidden");
-  berichtToevoegen("coach",
-   "Prima! Wil je één training plannen "+
-   "of een schema voor één of twee weken?");
+
+ if(bevat(t,[
+  "mijn kalender",
+  "mijn planning",
+  "wat staat er"
+ ])){
+  berichtToevoegen("coach",beschrijfPlanning());
   return;
  }
 
- // Start meerweekse schema's op expliciet verzoek.
- if(bevat(t,["schema","trainingsplan","weekprogramma"])&&
-  bevat(t,["week","weken"])&&coachContext.modus!=="schema"){
-  let weken=2;
-  if(/\b(1|een)\s+week\b/.test(t))weken=1;
+ if(bevat(t,[
+  "opnieuw beginnen",
+  "nieuw gesprek",
+  "reset coach"
+ ])){
+  coachContext=leegCoachContext();
+  coachVoorstelData=null;
+  el("coachVoorstel").classList.add("hidden");
+
+  berichtToevoegen(
+   "coach",
+   "Prima! Wil je één training plannen "+
+   "of een schema voor één of twee weken?"
+  );
+  return;
+ }
+
+ const weekverzoek=
+  /\b(schema|trainingsschema|trainingsplan|weekprogramma)\b/.test(t)&&
+  /\b(week|weken)\b/.test(t);
+
+ if(weekverzoek&&coachContext.modus!=="schema"){
+  const weken=/\b(1|een)\s+week\b/.test(t)?1:2;
   startSchema(weken);
   return;
  }
 
+ // GESPREK OVER MEERWEEKS SCHEMA
  if(coachContext.modus==="schema"){
   const c=coachContext;
   const dagen=herkenDagen(t);
+
   if(dagen.length){
-   c.dagen=[...new Set([...c.dagen,...dagen])];
-   Object.assign(c.dagMinuten,leesDagDuren(t));
+   c.dagen=[
+    ...new Set([...c.dagen,...dagen])
+   ];
+   Object.assign(
+    c.dagMinuten,
+    leesDagDuren(t)
+   );
   }
+
   const doel=herkenDoel(t);
   const gevoel=herkenGevoel(t);
   const locatie=herkenLocatie(t);
   const tijd=herkenTijd(t);
+
   if(doel)c.doel=doel;
   if(gevoel)c.gevoel=gevoel;
   if(locatie)c.locatie=locatie;
 
-  if(c.wachtOp==="duur"&&tijd!==null){
+  if(c.wachtOp==="duur"&&
+   tijd!==null&&!dagen.length){
    c.dagen.forEach(d=>{
-    if(!c.dagMinuten[d])c.dagMinuten[d]=tijd;
+    if(!c.dagMinuten[d]){
+     c.dagMinuten[d]=tijd;
+    }
    });
   }
-  if(!c.dagen.length){
-   vraagMeer("Op welke dagen kun je fietsen? "+
-    "Bijvoorbeeld dinsdag, donderdag en zondag.");
-   return;
-  }
-  if(c.dagen.length>5){
-   vraagMeer("Je hebt meer dan vijf trainingsdagen "+
-    "opgegeven. Kies maximaal vijf dagen per week, "+
-    "zodat er voldoende ruimte is voor herstel.");
-   c.dagen=[];c.dagMinuten={};
-   return;
-  }
 
-  const zonderDuur=c.dagen.filter(d=>!c.dagMinuten[d]);
-  if(zonderDuur.length){
-   c.wachtOp="duur";
-   vraagMeer(
-    "Hoeveel tijd heb je per trainingsdag?\n"+
-    "Bijvoorbeeld: dinsdag 60 minuten, "+
-    "donderdag 45 minuten en zondag 2 uur.\n"+
-    "Of geef één duur op voor alle dagen."
+  if(!c.dagen.length){
+   c.wachtOp="dagen";
+   berichtToevoegen(
+    "coach",
+    "Op welke dagen kun je fietsen? "+
+    "Bijvoorbeeld dinsdag, donderdag en zondag."
    );
    return;
   }
-  if(Object.values(c.dagMinuten).some(m=>m<15||m>360)){
+
+  if(c.dagen.length>5){
+   c.dagen=[];
+   c.dagMinuten={};
+   c.wachtOp="dagen";
+   berichtToevoegen(
+    "coach",
+    "Kies maximaal vijf dagen per week, "+
+    "zodat er ruimte voor rust overblijft."
+   );
+   return;
+  }
+
+  const ontbrekend=c.dagen.filter(
+   d=>!c.dagMinuten[d]
+  );
+
+  if(ontbrekend.length){
+   c.wachtOp="duur";
+   berichtToevoegen(
+    "coach",
+    "Hoeveel tijd heb je per trainingsdag?\n"+
+    "Bijvoorbeeld: dinsdag 60 minuten, "+
+    "donderdag 45 minuten en zondag 2 uur.\n"+
+    "Je mag ook één duur voor alle dagen geven."
+   );
+   return;
+  }
+
+  if(Object.values(c.dagMinuten).some(
+   m=>m<15||m>360
+  )){
    c.dagMinuten={};
    c.wachtOp="duur";
-   vraagMeer("Geef een tijd tussen 15 en "+
-    "360 minuten per trainingsdag.");
+   berichtToevoegen(
+    "coach",
+    "Geef per trainingsdag een duur "+
+    "tussen 15 en 360 minuten op."
+   );
    return;
   }
+
   if(!c.doel){
    c.wachtOp="doel";
-   vraagMeer("Wat is je doel? "+
-    "Conditie opbouwen, sneller worden, "+
-    "langere afstanden fietsen of herstellen?");
+   berichtToevoegen(
+    "coach",
+    "Wat is je doel? Conditie opbouwen, "+
+    "sneller worden, langere afstanden "+
+    "fietsen of herstellen?"
+   );
    return;
   }
+
   if(!c.gevoel){
    c.wachtOp="gevoel";
-   vraagMeer("Hoe voel je je op dit moment? "+
-    "Fit, normaal, vermoeid of heb je pijn?");
+   berichtToevoegen(
+    "coach",
+    "Hoe voel je je op dit moment? "+
+    "Fit, normaal, vermoeid of heb je pijn?"
+   );
    return;
   }
+
   if(c.gevoel==="pijn"){
-   berichtToevoegen("coach",
-    "Met pijn of blessureklachten stel ik "+
-    "voorlopig geen meerweeks schema voor. "+
-    "Laat klachten eerst beoordelen en "+
-    "bouw belasting zorgvuldig op.");
+   berichtToevoegen(
+    "coach",
+    "Omdat je pijn of blessureklachten meldt, "+
+    "maak ik nu geen meerweeks trainingsschema. "+
+    "Overleg bij aanhoudende klachten met "+
+    "een zorgprofessional."
+   );
    coachContext=leegCoachContext();
    return;
   }
+
   if(!c.locatie){
    c.wachtOp="locatie";
-   vraagMeer("Wil je buiten fietsen of "+
-    "op Zwift? Je kunt de trainingen later "+
-    "ook afzonderlijk aanpassen.");
+   berichtToevoegen(
+    "coach",
+    "Wil je buiten fietsen of op Zwift? "+
+    "Je kunt iedere training later aanpassen."
+   );
    return;
   }
+
   bouwWeekschema();
   return;
  }
 
- // Losse trainingsvraag
+ // GESPREK OVER LOSSE TRAINING
  const doel=herkenDoel(t);
  const gevoel=herkenGevoel(t);
  const locatie=herkenLocatie(t);
@@ -1627,66 +2375,86 @@ function coachAntwoord(invoer){
 
  if(coachContext.wachtOp==="minuten"&&tijd===null){
   const n=Number(t);
-  if(Number.isFinite(n)&&n>=15&&n<=360)
+  if(Number.isFinite(n)&&n>=15&&n<=360){
    coachContext.minuten=n;
+  }
  }
 
  const trainingsvraag=bevat(t,[
   "train","fiets","zwift","rit","workout",
   "conditie","sneller","snelheid","herstel",
-  "morgen","vandaag","minuten","uur","pijn",
-  "moe","interval","plan"
+  "morgen","vandaag","minuten","uur",
+  "pijn","moe","interval","plan"
  ]);
- const actief=coachContext.wachtOp!==null||
+
+ const actief=
+  coachContext.wachtOp!==null||
   coachContext.doel!==null||
   coachContext.datum!==null||
   coachContext.minuten!==null;
 
  if(!trainingsvraag&&!actief){
-  berichtToevoegen("coach",
-   "Hoi! 🚴 Ik kan een losse training "+
-   "of een schema voor één of twee weken "+
-   "maken. Bijvoorbeeld: 'Maak een "+
-   "trainingsschema voor 2 weken'.");
+  berichtToevoegen(
+   "coach",
+   "Ik help je met fietstrainingen. "+
+   "Probeer bijvoorbeeld: "+
+   "'Maak een trainingsschema voor 2 weken'."
+  );
   return;
  }
+
  if(!coachContext.datum){
   coachContext.wachtOp="datum";
-  berichtToevoegen("coach",
+  berichtToevoegen(
+   "coach",
    "Wanneer wil je trainen? "+
-   "Bijvoorbeeld vandaag, morgen of zondag?");
+   "Bijvoorbeeld vandaag, morgen of zondag?"
+  );
   return;
  }
+
  if(!coachContext.minuten||
   coachContext.minuten<15||
   coachContext.minuten>360){
   coachContext.wachtOp="minuten";
-  berichtToevoegen("coach",
+  berichtToevoegen(
+   "coach",
    "Hoeveel tijd heb je? "+
-   "Bijvoorbeeld 45 minuten of 1 uur.");
+   "Bijvoorbeeld 45 minuten of 1 uur."
+  );
   return;
  }
+
  if(!coachContext.doel){
   coachContext.wachtOp="doel";
-  berichtToevoegen("coach",
+  berichtToevoegen(
+   "coach",
    "Wil je conditie opbouwen, "+
    "sneller worden, langere afstanden "+
-   "fietsen of herstellen?");
+   "fietsen of herstellen?"
+  );
   return;
  }
+
  if(!coachContext.gevoel){
   coachContext.wachtOp="gevoel";
-  berichtToevoegen("coach",
-   "Hoe voel je je? Fit, normaal, "+
-   "vermoeid of heb je pijn?");
+  berichtToevoegen(
+   "coach",
+   "Hoe voel je je? "+
+   "Fit, normaal, vermoeid of heb je pijn?"
+  );
   return;
  }
+
  if(!coachContext.locatie){
   coachContext.wachtOp="locatie";
-  berichtToevoegen("coach",
-   "Wil je buiten fietsen of op Zwift?");
+  berichtToevoegen(
+   "coach",
+   "Wil je buiten fietsen of op Zwift?"
+  );
   return;
  }
+
  bouwLosseTraining();
 }
 
@@ -1698,6 +2466,7 @@ el("coachChatForm").onsubmit=e=>{
  berichtToevoegen("user",tekst);
  coachAntwoord(tekst);
 };
+
 document.querySelectorAll("[data-chat]").forEach(b=>{
  b.onclick=()=>{
   el("coachBericht").value=b.dataset.chat;
@@ -1705,30 +2474,45 @@ document.querySelectorAll("[data-chat]").forEach(b=>{
  };
 });
 
-// BACK-UP
+// ================================
+// BACK-UP EN TERUGZETTEN
+// ================================
 el("backupKnop").onclick=()=>{
  const data={
   datum:new Date().toISOString(),
-  trainingen,planning,weekdoelen,
-  zwiftBibliotheek,coachGeschiedenis
+  trainingen,
+  planning,
+  weekdoelen,
+  zwiftBibliotheek,
+  coachGeschiedenis
  };
- const blob=new Blob([JSON.stringify(data,null,2)],{
-  type:"application/json"
- });
+ const blob=new Blob(
+  [JSON.stringify(data,null,2)],
+  {type:"application/json"}
+ );
  const url=URL.createObjectURL(blob);
  const a=document.createElement("a");
  a.href=url;
- a.download="mijntrainingsplan2027-backup-"+
+ a.download=
+  "mijntrainingsplan2027-backup-"+
   datumKey(new Date())+".json";
- document.body.append(a);a.click();a.remove();
+ document.body.append(a);
+ a.click();
+ a.remove();
  setTimeout(()=>URL.revokeObjectURL(url),1000);
 };
-el("herstelKnop").onclick=()=>el("herstelBestand").click();
+
+el("herstelKnop").onclick=()=>{
+ el("herstelBestand").click();
+};
+
 el("herstelBestand").onchange=async e=>{
  const bestand=e.target.files[0];
  if(!bestand)return;
+
  try{
   const data=JSON.parse(await bestand.text());
+
   if(!Array.isArray(data.trainingen)||
    !Array.isArray(data.planning)||
    !data.weekdoelen||
@@ -1740,31 +2524,48 @@ el("herstelBestand").onchange=async e=>{
     !Array.isArray(data.coachGeschiedenis))){
    throw Error("Ongeldige back-up");
   }
-  if(!confirm("Huidige gegevens vervangen door back-up?"))return;
+
+  if(!confirm(
+   "Huidige gegevens vervangen door deze back-up?"
+  ))return;
+
   const z=data.zwiftBibliotheek===undefined
-   ?zwiftBibliotheek:data.zwiftBibliotheek;
+   ?zwiftBibliotheek
+   :data.zwiftBibliotheek;
   const chat=data.coachGeschiedenis===undefined
-   ?coachGeschiedenis:data.coachGeschiedenis;
+   ?coachGeschiedenis
+   :data.coachGeschiedenis;
+
   const keys=[
    trainingKey,planningKey,doelenKey,zwiftKey,chatKey
   ];
   const waardes=[
-   data.trainingen,data.planning,data.weekdoelen,z,chat
+   data.trainingen,data.planning,
+   data.weekdoelen,z,chat
   ];
   const oude=keys.map(k=>localStorage.getItem(k));
+
   try{
    keys.forEach((k,i)=>{
-    localStorage.setItem(k,JSON.stringify(waardes[i]));
+    localStorage.setItem(
+     k,JSON.stringify(waardes[i])
+    );
    });
   }catch(fout){
    keys.forEach((k,i)=>{
     try{
-     if(oude[i]===null)localStorage.removeItem(k);
-     else localStorage.setItem(k,oude[i]);
-    }catch(e){console.error(e)}
+     if(oude[i]===null){
+      localStorage.removeItem(k);
+     }else{
+      localStorage.setItem(k,oude[i]);
+     }
+    }catch(e){
+     console.error(e);
+    }
    });
    throw fout;
   }
+
   trainingen=data.trainingen;
   planning=data.planning;
   weekdoelen=data.weekdoelen;
@@ -1773,15 +2574,24 @@ el("herstelBestand").onchange=async e=>{
   coachContext=leegCoachContext();
   coachVoorstelData=null;
   el("coachVoorstel").classList.add("hidden");
-  resetPlanning();resetTraining();
-  allesBijwerken();chatWeergeven();
+
+  resetPlanning();
+  resetTraining();
+  allesBijwerken();
+  chatWeergeven();
+
   alert("Back-up teruggezet!");
- }catch(e){
-  console.error(e);
+ }catch(fout){
+  console.error(fout);
   alert("Back-up terugzetten mislukt.");
- }finally{e.target.value=""}
+ }finally{
+  e.target.value="";
+ }
 };
 
+// ================================
+// WEBSITE STARTEN
+// ================================
 function allesBijwerken(){
  dashboardBijwerken();
  weekdoelBijwerken();
@@ -1794,11 +2604,12 @@ function allesBijwerken(){
  updateCoachAnalyse();
 }
 
-// WEBSITE STARTEN
 el("doelWeek").value=isoWeek(new Date());
+
 resetPlanning();
 resetTraining();
 gekozenDag=datumKey(new Date());
+
 allesBijwerken();
 chatWeergeven();
 </script>
